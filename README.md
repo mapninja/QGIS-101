@@ -52,7 +52,7 @@ Open the Map Document
 Once you have opened the Map Document, you should see something like the below
 image.
 
-[media/image1.png](media/image1.png)
+![media/image1.png](media/image001.png)  
 ------------------------------------
 
 Exploring the Data
@@ -79,7 +79,7 @@ there are five “Layers” in the Layers Window:
 4.  **John_Snow_Map** – A scanned and georeferenced copy of John Snow’s map of
     the Cholera Outbreak of 1854. Each bar represents a death at that address.
 
-[media/image2.png](media/image2.png)
+![media/image2.png](media/image002.png)
 ------------------------------------
 
 Getting Statistics on a Field
@@ -101,7 +101,7 @@ simple statistical snapshot of the variable from the Attribute Table.
 Voronoi (Thiessen) polygon (Spatial Allocation)
 -----------------------------------------------
 
-![](media/image3.png)
+![](media/image003.png)
 
 Thiessen polygons allocate space in an area of interest to a single feature per
 polygon. That is, within a Thiessen polygon, all other features are closer to
@@ -121,7 +121,7 @@ the locations of the Water Pumps in our project.
 5.  On the v.voronoi tool window input the select **Water Pumps** as the **Input
     points layer.**
 
-![](media/image4.png)
+![](media/image004.png)
 
 On **Grass region, click the 3 dots** and select **Use layer/canvas extent.**
 
@@ -137,7 +137,7 @@ On **Grass region, click the 3 dots** and select **Use layer/canvas extent.**
 
 5.  **Click Run**
 
-![](media/image5.png)
+![](media/image005.png)
 
 **Open** the Attribute Table of the **Water_Pump_Voronoi** to explore how each
 Voronoi Polygon has the name of the pump enclosed.
@@ -148,7 +148,7 @@ Now that you have created the Thiessen polygon layer, you will “allocate” ea
 of the deaths to one of the Thiessen polygons. To do this, we will use the
 **Spatial Join** tool.
 
-![](media/image6.png)
+![](media/image006.png)
 
 On the pull-down menu go to menu go to **Vector \> Data Management Tools \> Join
 attributes by location**
@@ -170,7 +170,7 @@ attributes by location**
 
 ### Summary Statistics
 
-![](media/image7.png)
+![](media/image007.png)
 
 Finally, we would like to summarize the deaths in the outbreak, grouping our
 summary by the name of the Water Pump that each Death Address is nearest.
@@ -183,7 +183,7 @@ summary by the name of the Water Pump that each Death Address is nearest.
 
 4.  Close the **Plugin Window.**
 
-![](media/image8.png)
+![](media/image008.png)
 
 >   After the installation a **GroupStats Tool** appears on the Vector Toolbar.
 
@@ -191,7 +191,7 @@ summary by the name of the Water Pump that each Death Address is nearest.
 
 2.  **Select Deaths_Allocated** as Layer.
 
-![](media/image9.png)
+![](media/image009.png)
 
 Dag from **Fields** to **Column**: average, count and sum. On **Rows,** drag
 Name (originally from the Water_Pump data layer), and on **Value** drag
@@ -217,7 +217,7 @@ Spatial Central Tendency
 
 ### Spatial Mean (Mean Center)<br>“The [mean center](https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-statistics-toolbox/h-how-mean-center-spatial-statistics-works.htm) is the average x- and y-coordinate of all the features in the study area. It's useful for tracking changes in the distribution or for comparing the distributions of different types of feature”
 
-![](media/image10.png)
+![](media/image010.png)
 
 On the pull-down menu go to menu go to **Vector \> Analysis \> Mean
 coordinate(s)**
@@ -246,12 +246,12 @@ coordinate(s)**
 
 ### Standard Distance
 
-![](media/image11.png)
+![](media/image011.png)
 
 On the pull-down menu go to menu go to **Processing \> Toolbox** to open the
 **Processing Toolbox Window.**
 
-![](media/image12.png)
+![](media/image012.png)
 
 On the **Processing Toolbox Window type** to **search**: **Spatial point pattern
 analysis** and **double click** to open the tool window.
@@ -263,7 +263,7 @@ analysis** and **double click** to open the tool window.
 3.  **Give** an appropriate name and **Save** the **3 Output Files** on your
     **Data** folder.
 
-![](media/image13.png)
+![](media/image013.png)
 
 **Click Run** to calculate the **Standard Distance, Mean Centre and Bounding
 Box.**
@@ -277,7 +277,7 @@ Box.**
 Creating a surface from Point Data to Highlight “Hotspots” 
 ===========================================================
 
-### [media/image14.png](media/image14.png)
+![media/image14.png](media/image014.png)
 
 Kernel Density
 
@@ -300,7 +300,7 @@ of point data.
 
 6.  On the resulting window search for **Study Area** and **Click OK.**
 
-![](media/image15.png)
+![](media/image015.png)
 
 Set the **Cellsize** to 10 (this is also in meters)
 
@@ -313,7 +313,7 @@ Set the **Cellsize** to 10 (this is also in meters)
 4.  **Right Click** the **Kernel_Density layer** and **open** its
     **properties**.
 
-![](media/image16.png)
+![](media/image016.png)
 
 **Go** to the **Style Tab** and select
 
@@ -331,7 +331,7 @@ Set the **Cellsize** to 10 (this is also in meters)
 
     6.  **Click OK**
 
-![](media/image17.png)
+![](media/image017.png)
 
   
 Exercise 2: Areal Interpolation of Attributes
@@ -355,12 +355,11 @@ watershed.
     **Geoprocessing\\EX_03_Areal_Interp** folder so that it becomes the
     **Project home** folder.
 
-[media/image18.png](media/image18.png)
---------------------------------------
+![media/image18.png](media/image018.png)
 
 Adding Layers From a Geodatabase
 
-![](media/image19.png)
+![](media/image019.png)
 
 1.  **Click** the **add vector layer icon**
 
@@ -370,7 +369,7 @@ Adding Layers From a Geodatabase
 
 3.  **Click Browse.**
 
-![](media/image20.png)
+![](media/image020.png)
 
 On the resulting window go to the **EX_03_Areal_Interp folder** and **Select
 (**do not open) the **CT_Watershed_Data.gdb** and **click Select Folder.**
@@ -380,7 +379,7 @@ On the resulting window go to the **EX_03_Areal_Interp folder** and **Select
 2.  On the resulting window, (Select vector layers to add), use **Ctrl** to
     select the following layers:
 
-    ![](media/image21.png)
+    ![](media/image021.png)
 
     1.  **CT_State_Boundary**
 
@@ -398,12 +397,12 @@ On the resulting window go to the **EX_03_Areal_Interp folder** and **Select
     **Simple Fill \> Transparent Fill** and **Blue** as the **Border** Color and
     change the **Border width** to 1.0. **Click OK.**
 
-    ![](media/image22.png)
+    ![](media/image022.png)
 
 Calculating Geometry for a Data Layer
 -------------------------------------
 
-![](media/image23.png)
+![](media/image023.png)
 
 First, we need to determine the initial area of each of our “intact” Census
 Block Groups. We can refer to these as the “**Parent**” features. To enable the
@@ -412,7 +411,7 @@ as a shapefile.
 
 1.  **Right-Click** on the **CT_Block_Group Layer** and select **save as**.
 
-![](media/image24.png)
+![](media/image024.png)
 
 **Browse** for the **EX_03_Areal_Interp folder** and save the new shapefile as
 CT_Block_Group_Edit.
@@ -421,12 +420,12 @@ CT_Block_Group_Edit.
     data** available in this dataset. This data describes the demographic
     characteristics of every Census Block Group in our area of interest.
 
-![](media/image25.png)
+![](media/image025.png)
 
 At the top of the Attribute Table, **click** the **Toggle editing mode tool** or
 press Ctrl + E
 
-![](media/image26.png)
+![](media/image026.png)
 
 At the top of the Attribute Table, **click the New Column tool** or press Ctrl+W
 
@@ -438,7 +437,7 @@ At the top of the Attribute Table, **click the New Column tool** or press Ctrl+W
 3.  **Scroll** to the **far right** of the **Attribute Table** to view the newly
     added **AREA Field**.
 
-![](media/image27.png)
+![](media/image027.png)
 
 **Click** the **Field Calculator tool** or press Ctrl+I
 
@@ -451,9 +450,9 @@ At the top of the Attribute Table, **click the New Column tool** or press Ctrl+W
 >   Note that the AREA Field should now be populated with the new values, in
 >   square meters, because the coordinate system is in meters.
 
-![](media/image25.png)
+![](media/image025.png)
 
-![](media/image28.png)
+![](media/image028.png)
 
 **Save** the Edits on the Attribute Table ( or Ctrl+S) and stop the editing mode
 by clicking the **Toggle editing tool**
@@ -468,7 +467,7 @@ technique generically referred to as “Geoprocessing.” Geoprocessing is the a
 of applying any number of spatially transforming tools to a dataset. In this
 case, we will use the Union Tool to create a new dataset.
 
-![](media/image29.png)
+![](media/image029.png)
 
 On the pull down-menu go to **Vector \> Geoprocessing Tools \>Union**
 
@@ -518,14 +517,14 @@ Block Groups.
 Calculating the Weight value
 ----------------------------
 
-![](media/image30.png)
+![](media/image030.png)
 
 Now we will calculate the proportion of the child area to parent area, which
 will be used as a weight to apply to the demographics we are interested in.
 **First, we must exclude those polygons that have an AREA=’0’ (these are coastal
 “slivers” and are not important to the results of our analysis).**
 
-![](media/image31.png)
+![](media/image031.png)
 
 On the Union Layer Attribute Table, **click** on the **Select features using
 expression tool**
@@ -539,7 +538,7 @@ expression tool**
 
 3.  **Click Close**.
 
-![](media/image32.png)
+![](media/image032.png)
 
 **Open** the **Field Calculator.**
 
@@ -554,7 +553,7 @@ expression tool**
 
 4.  **Click OK**
 
-![](media/image33.png)
+![](media/image033.png)
 
 Finally, **Open** the **Field Calculator** and calculate the **WTPOP** field,
 using the following argument:  
@@ -563,7 +562,7 @@ using the following argument:
 
 1.  **Click OK** to **apply** the Calculation.
 
-![](media/image34.png)
+![](media/image034.png)
 
 **Save** your edits ( or Ctrl+S) and **Stop** the **Toggle editing mode** by
 **clicking** the **Toggle editing tool** Ctrl+E.
@@ -578,13 +577,13 @@ do this by running the Summary Stats tool on our Union Dataset, using the
 **Major field** (which identifies the Major Basin or watershed each polygon is
 in) as the **Case Field**.
 
-![](media/image35.png)
+![](media/image035.png)
 
-![](media/image36.png)
+![](media/image036.png)
 
 On the **Attribute Table** click on the **Clear Selection** button
 
-![](media/image8.png)
+![](media/image008.png)
 
 **Search** for and **open** the **Group Stats tool**
 
@@ -600,21 +599,21 @@ On the **Attribute Table** click on the **Clear Selection** button
 
 5.  **Close** the **Group Stats** window.
 
-![](media/image37.png)
+![](media/image037.png)
 
 **Click** on the **Add delimited text tool**
 
 1.  On the resulting window **Click Browse** and locate the **Population
     \_Summary Table**. **Select** it and **Click Open**
 
-![](media/image38.png)
+![](media/image038.png)
 
 **Select:**
 
 >   **File format:** Custom delimiter, **Check** the semicolon option, **Check**
 >   First record has field names and **No Geometry** as Geometry definition**.**
 
-![](media/image39.png)
+![](media/image039.png)
 
 **Click OK**.
 
@@ -623,8 +622,8 @@ On the **Attribute Table** click on the **Clear Selection** button
 Exercise 3: Leveraging Relational Database Capabilities in QGIS
 ===============================================================
 
-[media/image40.png](media/image40.png)
---------------------------------------
+![media/image40.png](media/image040.png)
+
 
 Creating a new Map Document
 
@@ -637,8 +636,8 @@ Creating a new Map Document
 3.  **Save** the **New Map Document** to the
     **\\Geoprocessing\\EX_03_Areal_Interp folder** as **EX_04.qgs**
 
-[media/image41.png](media/image41.png)
---------------------------------------
+![media/image41.png](media/image041.png)
+
 
 Add a Dataset to the Map Document
 
@@ -652,11 +651,11 @@ Creating a Feature Class from a Table of XY Coordinates
 1.  **Right-Click** and **Open** the **CT_TRI_Facilities** table and examine the
     data. Note the **Latitude** and **Longitude** fields.
 
-![](media/image42.png)
+![](media/image042.png)
 
 **Close** the **CT_TRI_Facilities** table.
 
-![](media/image43.png)
+![](media/image043.png)
 
 >   Right now, all the data is inside an ESRI Geodatabase. To be able to
 >   visualize the **CT_TRI_Facilities table** as an XY point layer, we need to
@@ -669,7 +668,7 @@ Creating a Feature Class from a Table of XY Coordinates
 3.  **Browse** for the **EX_03_Areal_Interp folder** and save the new file as
     **CT_TRI_Facilities_CSV.**
 
-![](media/image45.png)
+![](media/image045.png)
 
 **Uncheck** the **Add saved file to map** option and leave everything else as
 default.
@@ -679,7 +678,7 @@ default.
     If you go to the **Project home** folder, on the **Browser** window, you
     should now be able to see the CT_TRI_Facilities_CSV listed.
 
-![](media/image46.png)
+![](media/image046.png)
 
 **Click** on the **Add delimited text layer button** and browse for the the
 **CT_TRI_Facilities_CSV** file and select the following parameters :
@@ -688,7 +687,7 @@ default.
 
 >   **Geometry definition = Point Coordinates**
 
-![](media/image47.png)
+![](media/image047.png)
 
 **X field= LONGITUDE**
 
@@ -696,7 +695,7 @@ default.
 
 1.  **Click OK**.
 
-![](media/image48.png)
+![](media/image048.png)
 
 On the resulting CRS Selector window **Type EPSG: 4269** to filter and
 **Select** the *NAD83 Geographic Projection*
@@ -724,11 +723,11 @@ Relationships Classes in the GDB
 
 3.  On the pull-down menu go to **Project\>Project Properties\>Relations**
 
-![](media/image49.png)
+![](media/image049.png)
 
 **Click** the **Add relation button**
 
-![](media/image50.png)
+![](media/image050.png)
 
 On the resulting **Add relation window** use the following settings**:**
 
@@ -744,7 +743,7 @@ On the resulting **Add relation window** use the following settings**:**
 
 2.  **Click OK** twice to create the relation
 
-![](media/image51.png)
+![](media/image051.png)
 
 **Click** the **Identify Feature button** and **click** a point feature
 (facility). You should see **CT_TRI_Facilities-Feature Attributes** window. Make
@@ -755,19 +754,19 @@ sure the **auto open form** is **checked.**
 
 2.  **Save your map project! (Ctrl + S)**
 
-![](media/image52.png)
+![](media/image052.png)
 
 Creating a Geodatabase to Perform SQL 
 --------------------------------------
 
-![](media/image53.png)
+![](media/image053.png)
 
 Go to **Plugins\>Manage and Install plugins…**
 
 1.  Search and install **QSpatiaLite**. After the installation **click** on the
     tool to start the plugin.
 
-![](media/image54.png)
+![](media/image054.png)
 
 A window saying that they are not database connections yet should appear.
 **Click OK.**
@@ -775,20 +774,20 @@ A window saying that they are not database connections yet should appear.
 1.  **Save** the **NewDB** in the **EX_03_Areal_Interp** folder as
     **Toxic_Facilities.db**
 
-    ![](media/image55.png)
+    ![](media/image055.png)
 
 2.  An error window appears. **Click OK**
 
-    ![](media/image56.png)
+    ![](media/image056.png)
 
-    ![](media/image57.png)
+    ![](media/image057.png)
 
-![](media/image58.png)
+![](media/image058.png)
 
 On the **QspatiaLite** window **select** the **Import QGIS Layers** tool and
 **select Toxic_Sites. Click OK.**
 
-![](media/image59.png)
+![](media/image059.png)
 
 To import the **Chemicals** table use the **Import TXT_CSV** tool On the **File
 Path**, **browse** to the **EX_03_Areal folder** to find the **Chemicals.csv**
@@ -802,7 +801,7 @@ and **set** the next options:
 
 **Click Upload.**
 
-![](media/image60.png)
+![](media/image060.png)
 
 1.  To select the **Toxic_Sites** that release *Lead and Lead Compounds* into
     the environment,
@@ -833,7 +832,7 @@ and **set** the next options:
 
 4.  **Search** for **MMQGIS** and **install** the plugin.
 
-    ![](media/image61.png)
+    ![](media/image061.png)
 
 5.  **MMQGIS** should appear on the pull-down menu.
 
@@ -866,7 +865,7 @@ The **Distance Matrix** tool will be used to create a table that identifies the
 
 3.  Go to **Vector\>Analysis Tools\>Distance Matrix.**
 
-![](media/image62.png)
+![](media/image062.png)
 
 On the Distance Matrix window, set the following parameters:
 
@@ -894,11 +893,11 @@ On the Distance Matrix window, set the following parameters:
     examine the data. Note the **Distance** field uses feet as the linear
     measure.
 
-![](media/image63.png)
+![](media/image063.png)
 
 1.  **Click** on the **Open Field Calculator** and set the following parameters:
 
-![](media/image64.png)
+![](media/image064.png)
 
 >   **Output field name = Miles**
 
@@ -954,11 +953,11 @@ Relationship Classes in the Map Document
 
 **Referenced Field= Name**
 
-### [media/image65.png](media/image65.png)
+![media/image65.png](media/image065.png)
 
 Exploring Related Tables
 
-![](media/image66.png)
+![](media/image066.png)
 
 **Open** the **Schools** attribute table and Select **The Strong School** (using
 any method of selection you prefer).
@@ -975,17 +974,17 @@ any method of selection you prefer).
 4.  Now, from the **Schools2Near**, use the **Form View** to **select** the
     records in the **Chemicals table** that are related to the TRI Sites.
 
-![](media/image67.png)
+![](media/image067.png)
 
 Performing SQL 
 ---------------
 
-![](media/image58.png)
+![](media/image058.png)
 
 1.  On the **QspatiaLite** window **select** the **Import QGIS Layers** tool and
     **select Schools.**
 
-    ![](media/image59.png)
+    ![](media/image059.png)
 
 2.  To import the **Near_Schools** table use the **Import TXT_CSV** tool On the
     **File Path**, **browse** to the **EX_03_Areal folder** to find the
@@ -1004,7 +1003,7 @@ Performing SQL
     **Set** the Option as **Create Table & Load in QGIS** and **Name** as
     StrongSchool_Exposure
 
-![](media/image68.png)
+![](media/image068.png)
 
 >   **SELECT** "Chemicals".'CHEMNAME' , "Chemicals".'TTLAIR' ,
 >   "Chemicals".'TTLSURFWAT'
@@ -1029,7 +1028,7 @@ instance, many records of Lead Compounds selected, we would like a single record
 that indicates the TOTAL amount of Lead compounds released within 5 miles of The
 Strong School, and so on…
 
-![](media/image69.png)
+![](media/image069.png)
 
 **On the SQL** Window add to what you typed: **GROUP BY** "Chemicals".'CHEMNAME'
 
@@ -1037,7 +1036,5 @@ Strong School, and so on…
     to QGIS.
 
 2.  **Open** the resulting **Summary Table** and examine the results.
-
-![](media/image70.png)
 
 This concludes the Geoprocessing Tutorial
