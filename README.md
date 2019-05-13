@@ -1,5 +1,7 @@
 # Geoprocessing with QGIS 101
 
+## **WARNING THIS DOCUMENT IS PROBABLY NOT USEFUL, YET. THIS IS A CONVERSION PROJECT, AND FORMATTING IS BEING MANUALLY UPDATED FROM DOCX TO MARKDOWN**
+
 Stacey Maples – Geospatial Manager – Stanford Geospatial Center –
 stacemaples@stanford.edu
 
