@@ -1,23 +1,25 @@
----
-subtitle: >
-  Geoprocessing and Basic Analysis of Spatial Data with QGIS
+# Geoprocessing with QGIS 101
 
+Stacey Maples – Geospatial Manager – Stanford Geospatial Center –
+stacemaples@stanford.edu
 
-  Stacey Maples – Geospatial Manager – Stanford Geospatial Center –
-  stacemaples@stanford.edu
-
-
-  David Medeiros – GIS Instruction & Support Specialist - Stanford Geospatial
-  Center - davidmed@stanford.edu 
----
+David Medeiros – GIS Instruction & Support Specialist - Stanford Geospatial
+Center - davidmed@stanford.edu 
 
 This session will build upon the skills and concepts introduced in the
-"Introduction to Geographic Information Systems and QGIS for Spatial Analysis"
-session and participants will be expected to attend that workshop, or have
-comparable experience with ArcGIS 10.x.  Topics will include: Use of Relates &
-Relationship Classes; Geoprocessing of geographic data; Geocoding of street
-addresses; Overlay Analysis; and Advanced Manipulation of Tabular Data. Part of
-the Stanford Geospatial Center GIS Workshop Series
+"QGIS 101" session and participants will be expected to attend that workshop, or have
+comparable experience with ArcGIS 10.x, or other desktop GIS.  
+
+Topics will include:  
+
+* Use of Relates & Relationship Classes
+* Geoprocessing of geographic data
+* Geocoding of street addresses
+* Overlay Analysis 
+* Advanced Manipulation of Tabular Data
+* Spatial SQL Queries
+
+Part of the Stanford Geospatial Center GIS Workshop Series
 
 GIS Resources:
 --------------
@@ -1035,6 +1037,6 @@ Strong School, and so on…
 1.  **Name** the **Output Table Summary_StrongSchool_Exposure** and **load** it
     to QGIS.
 
-2.  **Open** the resulting **Summary Table** and examine the results.
+2.  **Open** the resulting **Summary Table** and examine the results
 
 This concludes the Geoprocessing Tutorial
