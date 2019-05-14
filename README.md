@@ -56,8 +56,7 @@ Open the Map Document
 Once you have opened the Map Document, you should see something like the below
 image.
 
-![media/image1.png](media/image001.png)  
-------------------------------------
+![media/image1.png](media/image001-drop-shadow.png)  
 
 Exploring the Data
 ------------------
@@ -83,8 +82,8 @@ there are five “Layers” in the Layers Window:
 4.  **John_Snow_Map** – A scanned and georeferenced copy of John Snow’s map of
     the Cholera Outbreak of 1854. Each bar represents a death at that address.
 
-![media/image2.png](media/image002.png)
-------------------------------------
+![media/image2.png](media/image002-drop-shadow.png)
+
 
 Getting Statistics on a Field
 
@@ -105,7 +104,7 @@ simple statistical snapshot of the variable from the Attribute Table.
 Voronoi (Thiessen) polygon (Spatial Allocation)
 -----------------------------------------------
 
-![](media/image003.png)
+![](media/image003-drop-shadow.png)
 
 Thiessen polygons allocate space in an area of interest to a single feature per
 polygon. That is, within a Thiessen polygon, all other features are closer to
@@ -125,7 +124,7 @@ the locations of the Water Pumps in our project.
 5.  On the v.voronoi tool window input the select **Water Pumps** as the **Input
     points layer.**
 
-![](media/image004.png)
+![](media/image004-drop-shadow.png)
 
 On **Grass region, click the 3 dots** and select **Use layer/canvas extent.**
 
@@ -141,7 +140,7 @@ On **Grass region, click the 3 dots** and select **Use layer/canvas extent.**
 
 5.  **Click Run**
 
-![](media/image005.png)
+![](media/image005-drop-shadow.png)
 
 **Open** the Attribute Table of the **Water_Pump_Voronoi** to explore how each
 Voronoi Polygon has the name of the pump enclosed.
@@ -152,7 +151,7 @@ Now that you have created the Thiessen polygon layer, you will “allocate” ea
 of the deaths to one of the Thiessen polygons. To do this, we will use the
 **Spatial Join** tool.
 
-![](media/image006.png)
+![](media/image006-drop-shadow.png)
 
 On the pull-down menu go to menu go to **Vector \> Data Management Tools \> Join
 attributes by location**
@@ -174,7 +173,7 @@ attributes by location**
 
 ### Summary Statistics
 
-![](media/image007.png)
+![](media/image007-drop-shadow.png)
 
 Finally, we would like to summarize the deaths in the outbreak, grouping our
 summary by the name of the Water Pump that each Death Address is nearest.
@@ -187,7 +186,7 @@ summary by the name of the Water Pump that each Death Address is nearest.
 
 4.  Close the **Plugin Window.**
 
-![](media/image008.png)
+![](media/image008-drop-shadow.png)
 
 >   After the installation a **GroupStats Tool** appears on the Vector Toolbar.
 
@@ -195,7 +194,7 @@ summary by the name of the Water Pump that each Death Address is nearest.
 
 2.  **Select Deaths_Allocated** as Layer.
 
-![](media/image009.png)
+![](media/image009-drop-shadow.png)
 
 Dag from **Fields** to **Column**: average, count and sum. On **Rows,** drag
 Name (originally from the Water_Pump data layer), and on **Value** drag
@@ -221,7 +220,7 @@ Spatial Central Tendency
 
 ### Spatial Mean (Mean Center)<br>“The [mean center](https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-statistics-toolbox/h-how-mean-center-spatial-statistics-works.htm) is the average x- and y-coordinate of all the features in the study area. It's useful for tracking changes in the distribution or for comparing the distributions of different types of feature”
 
-![](media/image010.png)
+![](media/image010-drop-shadow.png) 
 
 On the pull-down menu go to menu go to **Vector \> Analysis \> Mean
 coordinate(s)**
@@ -250,7 +249,7 @@ coordinate(s)**
 
 ### Standard Distance
 
-![](media/image011.png)
+![](media/image011-drop-shadow.png)
 
 On the pull-down menu go to menu go to **Processing \> Toolbox** to open the
 **Processing Toolbox Window.**
