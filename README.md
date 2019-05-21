@@ -1041,3 +1041,4 @@ Strong School, and so on…
 2.  **Open** the resulting **Summary Table** and examine the results
 
 This concludes the Geoprocessing Tutorial
+n
