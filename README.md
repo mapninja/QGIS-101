@@ -12,7 +12,7 @@ This session will build upon the skills and concepts introduced in the
 "QGIS 101" session and participants will be expected to attend that workshop, or have
 comparable experience with ArcGIS 10.x, or other desktop GIS.  
 
-Topics will include:  
+**Topics will include:  **
 
 * Use of Relates & Relationship Classes
 * Geoprocessing of geographic data
@@ -23,18 +23,20 @@ Topics will include:
 
 Part of the Stanford Geospatial Center GIS Workshop Series
 
-GIS Resources:
---------------
+### GIS Resources:
+
 
 Stanford Geospatial Center website - <http://gis.stanford.edu/>
 
 Stanford GIS Listserv -
 <https://mailman.stanford.edu/mailman/listinfo/stanfordgis>
 
-QGIS 2.8 Help - http://docs.qgis.org/2.8/en/docs/user_manual/
+QGIS 3.4 Help - [https://qgis.org/en/docs/index.html](https://qgis.org/en/docs/index.html)
 
-Download Tutorial Data
-----------------------
+Installing QGIS
+
+### Download Tutorial Data
+
 
 1.  In a browser, go to <https://stanford.box.com/SGCIntroGIS> and click on the
     drop-down arrow to the right of each folder to download individual datasets.
@@ -44,22 +46,22 @@ Download Tutorial Data
 
 3.  Accept all defaults to extract the data file.
 
-Point Pattern Analysis
-----------------------
 
-Open the Map Document
----------------------
+### Open the Map Document
+
 
 1.  Browse into the **Geoprocessing/EX_02_Snow_Map** folder and **double-click**
     on the **EX_02\_ \_Snow_Map.qgs** to open it.
+
+We'll begin with Dr. John Snow's dataset of the [London Cholera Outbreak of 1954](https://www.ph.ucla.edu/epi/snow/snowcricketarticle.html). Here's a [great 10 minute TED version](https://www.ted.com/talks/steven_johnson_tours_the_ghost_map?language=en) of the fascinating story in the history of spatial epidemiology.  
 
 Once you have opened the Map Document, you should see something like the below
 image.
 
 ![media/image1.png](media/image001-drop-shadow.png)  
 
-Exploring the Data
-------------------
+### Exploring the Data
+
 
 Now we would like to get familiar with the data in this Map Document. Note that
 there are five “Layers” in the Layers Window:
@@ -85,7 +87,9 @@ there are five “Layers” in the Layers Window:
 ![media/image2.png](media/image002-drop-shadow.png)
 
 
-Getting Statistics on a Field
+## Point Pattern Analysis  
+
+### Getting Statistics on a Field
 
 As mentioned, above, the **Num_Cases** field in the Death Addresses data
 indicates the number of deaths at each address in the dataset. You can get a
@@ -101,8 +105,7 @@ simple statistical snapshot of the variable from the Attribute Table.
     Analysis (EDA). To find more about EDA go to
     [wiki.gis.com](http://wiki.gis.com/wiki/index.php/Exploratory_data_analysis)
 
-Voronoi (Thiessen) polygon (Spatial Allocation)
------------------------------------------------
+### Voronoi (Thiessen) polygon (Spatial Allocation)
 
 ![](media/image003-drop-shadow.png)
 
@@ -215,8 +218,7 @@ and **Average** (Mean Deaths per Household).
 
 2.  **Close** the Group Stats Window
 
-Spatial Central Tendency
-------------------------
+## Spatial Central Tendency
 
 ### Spatial Mean (Mean Center)<br>“The [mean center](https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-statistics-toolbox/h-how-mean-center-spatial-statistics-works.htm) is the average x- and y-coordinate of all the features in the study area. It's useful for tracking changes in the distribution or for comparing the distributions of different types of feature”
 
