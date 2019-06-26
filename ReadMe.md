@@ -8,11 +8,15 @@ This workshop aims to accomplish two things: Introduce participants to basic voc
 
 ## Setup
 
+```addcontent```
+
 ### Software
 
 `Overview and Installation & Setup Guidance for the Packages covered will be presented here.`  
 
 ### Data
+
+```update```
 
 The data package for the workshop can be downloaded from <here>
 
@@ -31,7 +35,7 @@ In this section we will cover starting a new QGIS project. We will create a new 
 
 ### Interface overview
 
-Thank you QGIS interface is similar to many desktop GIS applications. 
+The QGIS interface is similar to many desktop GIS applications. 
 
 #### The Basic Components of the QGIS Interface
 
@@ -98,11 +102,50 @@ Now we're going to add an existing data layer. The data layer that we will add d
 
 ### Explore navigation tools
 
-Now we will explore the basic navigation tools in QGIS. These are the tools that you will used to move around in the data frame, or map canvas, as it is referred to in QGIS.
+Now we will explore the **basic navigation tools** in QGIS. These are the tools that you will 
+
+The **Map Navigation Toolbar** provides the bulk of the tools for navigation in
+the **Map Canvas**. Most of them are fairly obvious. Take a moment to explore
+each of these tools, and how it works.
+
+![](./media/image13.png)  The **Touch Zoom and Pan** - Works if you have a notebook with touch screen.
+Zoom in and zoom out using double finger touch.
+
+![](./media/image14.png)  The **Pan Map** changes the Extent of Map Canvas, without changing the scale.
+Click on the Pan Tool and use it to move around the Map Canvas.
+
+![](./media/image15.png)  The **Pan Map to Selection** changes the Extent of your Map Canvas to the
+feature being selected, without changing the scale
+
+![](./media/image16.png)  The **Zoom In Tool** and  ![](./media/image17.png)  **Zoom Out** works exactly as you would expect. Click on the Zoom Tool, and drag
+a box to enclose the Continental United States. You can also single-click with
+this tool to use it as a Fixed Zoom Tools.
+
+![](./media/image18.png)  The **Zoom Full** zooms you to the full extent of the layer in your Map Project with the largest spatial extent. This can sometimes be problematic if you are
+working at a local level, but using one or more layers that are global in extent
+(for example, many of the network base map services).
+
+![](media/image19.png)  The **Zoom to Selection** changes the Extent of your Map Canvas and zooms in or
+out to the selected feature.
+
+### Scale
+
+When zooming in or out, the Scale Values at the bottom page change. Remember
+that the bigger the number (1:60,000,000), the larger the area being displayed.
+Although 60,000,000 is bigger than 60, a scale 1:60,000,000 is a small scale and
+1:60 is a large scale because the division of 1/60,000,000 is smaller than 1/60.
+
+![](./media/image20.png)
+
+![](./media/image22.png)  The **Zoom to Layer** to a specific layer extent.
+
+![](./media/image23.png)  The **Zoom Last** and ![](./media/image24.png) **Zoom Next** works as a Redo or Undo tool **ONLY** for the Scale/Extent in your Map Canvas. This tool is particularly useful if you change your Map Extent inadvertently.
+
+![](./media/image25.png)  The **Refresh Button** will reload your Map Extent
 
 ### Spatial Bookmarks
 
-Often, we want to be able to move around in our data frame examining different parts of the map zooming in and out, and then returning two our primary area of interest. This can be easily accommodated through the use of spatial bookmarks. Here you'll create a spatial bookmark which allows us to quickly return to the area that we are interested in.
+Often, we want to be able to move around in our data frame examining different parts of the map zooming in and out, and then returning to our primary area of interest. This can be easily accommodated through the use of spatial bookmarks. Here you'll create a spatial bookmark which allows us to quickly return to the area that we are interested in.
 
 1. Previously we used the main menu to enable a panel. This time, try right-clicking in any empty area of the toolbar then scroll down and select the **Spatial Bookmarks panel** from the menu that is presented.
 2. Right-click on your study_area layer and select **Zoom to layer**.
