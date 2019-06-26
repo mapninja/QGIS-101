@@ -21,7 +21,6 @@ The data package for the workshop can be downloaded from <here>
 * Study_Area.shp
 * Water_Pumps.geojson
 
-# The Outline - QGIS Version
 ## Getting started on a project  
 
 In this section we will cover starting a new QGIS project. We will create a new map document, go over the basic QGIS interface, customize that interface, add a plug-in and bring a base map into your QGIS project.
@@ -29,7 +28,6 @@ In this section we will cover starting a new QGIS project. We will create a new 
 ### Create a Map Document
 
 1. To create a new map document, simply open QGIS and save the resulting empty document to your project folder, naming your new document something meaningful like "SnowMap.qgz" or "Cholera_Map.qgz"
-
 
 ### Interface overview
 
