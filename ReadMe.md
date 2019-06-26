@@ -22,37 +22,81 @@ The data package for the workshop can be downloaded from <here>
 * Water_Pumps.geojson
 
 # The Outline - QGIS Version
-## Getting started on a project
+## Getting started on a project  
+
+In this section we will cover starting a new QGIS project. We will create a new map document, go over the basic QGIS interface, customize that interface, add a plug-in and bring a base map into your QGIS project.
 
 ### Create a Map Document
+
+1. To create a new map document, simply open QGIS and save the resulting empty document to your project folder, naming your new document something meaningful like "SnowMap.qgz" or "Cholera_Map.qgz"
+
+
 ### Interface overview
+
+Thank you QGIS interface is similar to many desktop GIS applications. 
+
+#### The Basic Components of the QGIS Interface
+
+The QGIS interface is made up of three basic components:
+
+**The Map Canvas **– the map canvas is where your visualizations of data will show up when you had a new data layer. This is where you will view the changes that are made when you adjust symbology, when you change the order of layers, or when you produce a new data set through geo-processing  
+
+**Tabbed Windows:**
+
+* **The Browser Window** – Functions much as Explorer does in Windows. In this window, you can visualize your drives and folders. Is the equivalent of ArcCatalog in ArcMap.
+* **The Layers Window** – This is where your added geographic and non-geographic datasets will show. This is similar to the Table of Contents in ArcMap.
+
+**General Menu Bars:**
+
+* **File Bar** – Has the basic commands of any file: New, Open, Save, Save As. The New Print Composer and Composer Manager are to create and manage layout views.
+* **Map Navigation** – Allows the user to Pan, Zoom to a Selected Feature, Zoom In, Zoom Out, Zoom to previous/next extent, and Refresh.
+* **Attributes** – These tools allow the user to: Identify attributes, Select / Deselect features, Opens attribute table, measure distance/areas/angles, create spatial bookmarks.
+* **Plugins** – QGIS comes with two default plugins: Python Console and QGis 2 Leaflet Webmap.
+* **Help** – The question mark booklet is linked to the QGIS User Guide.
+* **Manage Layers** – This bar is to add layers (vector, raster, new shapefile layer)
+
 ### Customize interface
+
+When you first open QGIS, you might find the toolbars and panels that are neabled by default are more than your project calls for. Most panels and toolbars in the QGIS interface can be moved around by grabbing the title bar of panels, or the dotted handle on toolbars, and dragging them to the desired location in the interface. You can also use the View menu to turn panels and toobars on and off.
+
+![](./media/customize.gif)
+
+1. Toggle the visibility and move toolbars and panels until your QGIS interface resembles the image below.
+
+![](./media/customize.png)
+
 ### Add a plugin
 The first thing we would like to do is at a base map layer to our map project. We will use the quick map services plug-in to add a base map created by Stamen design. QGIS uses a plug-in model to extend the functionality of the basic software. Most plug-ins are contributed by members of the QGIS community and many extend functionality by adding interactivity with external services like geocoding , routing, and base map services.
 
 1. On the **Main menu** of **QGIS**, find the **Plug-ins** menu and open the **Manage and install plugins** dialogue.  
-2. In the search box at the top of the dialogue, search for the term "Quick."  
+2. In the search box at the top of the dialogue, search for the term "QuickMapServices"    
 3. The search should return a plug-in called "QuickMapServices." 
 4. Click on the QuickMapServices plug-in name and then click the install plug-in button
 5. Once the plug-in has successfully installed, Close the plug-in management dialog.
 
+![](./media/pluginMenu.png)  
 
 ### Add a basemap service layer
 
-1. Installing the QuickMapServices plug-in should have added a new menu item to the Q GIS main menu called "Web".
-2. Click on the web menu and from the QuickMapServices item select "Settings."
-3. Select the "More Services" tab and click on the "Get contributed pack" button. This will download a large list of web map services that can be used directly into GIS as base maps.
-4. Once the contributed pack has been downloaded click save to close the dialog.
-5. Now return to the quick map services menu, and select the Stamen> Stamen Toner Lite base map.
+1. Installing the **QuickMapServices** plug-in should have added a new menu item to the QGIS main menu called "Web".
+2. Click on the web menu and from the **QuickMapServices** item select "**Settings**."
+3. Select the "**More Services**" tab and click on the "**Get contributed pack**" button. This will download a large list of web map services that can be used directly into GIS as base maps.  
+![](./media/contribpack.png)  
+4. Once the contributed pack has been downloaded click **Save** to close the dialog.
+5. Now return to the quick map services menu, and select the **Stamen> Stamen Toner Lite** base map.
+
+![](./media/stamenbasemap.png)
 
 ### Add an existing data layer
 Now we're going to add an existing data layer. The data layer that we will add describes our area of interest in this study. This layer Will provide us with a convenient way to orient our data frame to the area that we are interested in as well as providing a way to limit the processing extent of certain geo-processing tools.
 
-1. In the QGIS Browser panel, find the data folder for this workshop and double-click on the study_area.shp file, to add it to your map document.
-2. In the layers panel, right-click on the study_area layer and select "zoom to layer."
-3. On the main menu, enable the Layer styling panel from the Layer>Panels menu. 
-4. In the Layer styling panel at the top select **Simple fill** from the panel at the top, and change the Fill style to "No brush." If you would like you can also change the **Stroke color** & **Stroke width** of the stroke to make it more visible against the black-and-white basemap.
-5. Save your map document.
+1. In the **QGIS Browser panel**, find the data folder for this workshop (Hint: look for the "**Project Home**" folder)a nd double-click on the **study_area.shp** file, to add it to your **map project**.
+2. In the **Layers panel**, right-click on the **study_area layer** and select "**Zoom to layer**."
+3. On the **Main menu**, enable the **Layer styling panel** from the **Layer>Panels menu**. 
+4. In the **Layer styling panel** select **Simple fill** from the panel at the top, and change the **Fill style** to "**No brush**." If you would like you can also change the **Stroke color** & **Stroke width** of the stroke to make it more visible against the black-and-white basemap.
+5. **Save** your **map document**.
+
+![](./media/studyareaadd.png)
 
 ### Explore navigation tools
 
