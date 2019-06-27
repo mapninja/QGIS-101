@@ -270,10 +270,10 @@ This URL provides access to the georeferenced map outside of the DavidRumsey.com
 | Name: | Gegend Map |
 | URL: | ```https://maps.georeferencer.com/georeferences/435516159934/2019-02-19T17:27:12.514288Z/wmts?key=mpIMvCWIYHCcIzNaqUSo&SERVICE=WMTS&REQUEST=GetCapabilities``` |   
 
-![](./media/createwmtsconnect.png)
+![](./media/createwmtsconnect.png)   
 4. Click OK to dismiss the dialog and save the connection  
 5. Click **Connect**  
-![](./media/connectwmts.png)  
+![](./media/connectwmts.png)    
 6. In the **Tilesets** tab, highlight the Gegend map WMTS layer item at the top and click **Add & Close** to close the dialog and return to the **QGIS Map Canvas**
 7. **Right-click** on the **Gegend von London 1853** layer in the **Layer panel** and select **Zoom to layer**
 8. Use the **Navigation Tools** to explore the map service at sevaral different scales and extents.
