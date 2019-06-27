@@ -268,7 +268,8 @@ This URL provides access to the georeferenced map outside of the DavidRumsey.com
 | Setting | Value |
 |--------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Name: | Gegend Map |
-| URL: | ```https://maps.georeferencer.com/georeferences/435516159934/2019-02-19T17:27:12.514288Z/wmts?key=mpIMvCWIYHCcIzNaqUSo&SERVICE=WMTS&REQUEST=GetCapabilities``` | 
+| URL: | ```https://maps.georeferencer.com/georeferences/435516159934/2019-02-19T17:27:12.514288Z/wmts?key=mpIMvCWIYHCcIzNaqUSo&SERVICE=WMTS&REQUEST=GetCapabilities``` |   
+
 ![](./media/createwmtsconnect.png)
 4. Click OK to dismiss the dialog and save the connection  
 5. Click **Connect**  
