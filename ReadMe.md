@@ -1,7 +1,5 @@
 # QGIS 101
 
-This document outlines the basic structure of the Introductory 101s workshops, part of the SGC Spatial Data Workshop Series. 
-
 ## Overview
 
 This workshop aims to accomplish two things: Introduce participants to basic vocabulary, concepts and techniques for working with spatial data in research and introduce the interface and tools in QGIS, a free & open source desktop GIS software
@@ -29,13 +27,19 @@ The data package for the workshop can be downloaded from <here>
 
 In this section we will cover starting a new QGIS project. We will create a new map document, go over the basic QGIS interface, customize that interface, add a plug-in and bring a base map into your QGIS project.
 
+```addcontent```
+
 ### Create a Map Document
+
+```addcontent```
 
 1. To create a new map document, simply open QGIS and save the resulting empty document to your project folder, naming your new document something meaningful like "SnowMap.qgz" or "Cholera_Map.qgz"
 
 ### Interface overview
 
 The QGIS interface is similar to many desktop GIS applications. 
+
+```addcontent```
 
 #### The Basic Components of the QGIS Interface
 
@@ -48,7 +52,7 @@ The QGIS interface is made up of three basic components:
 * **The Browser Window** – Functions much as Explorer does in Windows. In this window, you can visualize your drives and folders. Is the equivalent of ArcCatalog in ArcMap.
 * **The Layers Window** – This is where your added geographic and non-geographic datasets will show. This is similar to the Table of Contents in ArcMap.
 
-**General Menu Bars:**
+**General Toolbars:**
 
 * **File Bar** – Has the basic commands of any file: New, Open, Save, Save As. The New Print Composer and Composer Manager are to create and manage layout views.
 * **Map Navigation** – Allows the user to Pan, Zoom to a Selected Feature, Zoom In, Zoom Out, Zoom to previous/next extent, and Refresh.
