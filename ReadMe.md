@@ -189,13 +189,22 @@ Add the deathAddresses.csv
 |--------------------------:|--------------------------------------------------------------------|
 | File Format:  | CSV |
 | Record and Field Options: | "First records has field names" = true "Detect field types" = true |
-| Geometry Definition: | Point coordinates: "X field" = 'xcoord, "Y field" = 'ycoord' |  
+| Geometry Definition: | Point coordinates: "X field" = 'xcoord, "Y field" = 'ycoord' |   
 
-![](./media/datasourcemanager.png)
+
+![](./media/datasourcemanager.png)  
+
 ![](./media/addedpoints.png)
 
 ### Layer symbology
 Proportional symbols on Death Addresses
+
+1. If not already, **click** on the **deathAddresses** layer to highlight it and focus the **Layer Styling panel** on this layer.
+2. Change teh Symology Type dropdown to "**Graduated**"
+3. Select **Num_Cases**
+
+
+
 ### Statistics on a field
 Num Cases
 
