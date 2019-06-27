@@ -236,8 +236,7 @@ As mentioned, above, the **Num_Cases** field in the Death Addresses data indicat
 3. On the window select **Death Addresses** as the Input Vector layer and **Num_Cases** as the Target field.
 4. **Click Run** and **Close** 
 5. Look for the **Results Viewer** which should have been activated, and click on the **Hyperlink** to open the summary in a web browser.  
-![](./media/resultsviewer-drop-shadow.png)
-6. 
+![](./media/resultsviewer-drop-shadow.png)   
 
 ## Creating spatial data from a scanned reference source map
 ### Finding a map
