@@ -284,8 +284,28 @@ This URL provides access to the georeferenced map outside of the DavidRumsey.com
 
 Georeference the John Snow 1854 SOHO map for digitizing the water pump locations.
 
-1. On the Main  Menu, go to **Raster>Georeferencer** to open the **GDAL Georeferencer**
-2. 
+1. On the **Main Menu**, go to **Raster>Georeferencer** to open the **GDAL Georeferencer**
+2. Click on the **Open Raster** button  ![](./media/openraster.png) and browse to the **/data/** folder, select the **snow_map.png** and click **Open**
+3. Use the Zoom tool to Zoom to the upper-right corner of the John Snow Map, around the SOHO Square
+4. Click on the Add Point tool ![](./media/addgcp.png) and click on the upper right corner of the outside boundary of SOHO Square, as shown below:
+![](./media/addpointdialog-drop-shadow.png)  
+5. Click on the **From Map Canvas** button to switch back to the main QGIS Window
+6. Zoom to the same are of your Map Canvas, *preferably using your mouse wheel or keyboard shortcuts so you don't deactivate the Add Point tool, but you can always go back to the Georeferencer window and reactivate it* 
+7. Place **Ground Control Points** in each corner of the map, switching between the two windows using the **Add Point** tool, as needed. Add a final point somewhere near the center of the map.
+![](./media/georeferencer.png)  
+8. Click on the **Save GCP Points As...** button and save the points table as ```snow_map.png.points``` in your **/data/** folder.
+9. Click on the **Transformation Settings** button ![](./media/transform.png) and examine the settings. The defaults should be fine, as follows:  
+
+| Setting | Value |
+|---------------------:|--------------------|
+| Transformation Type: | Polynomial 1 |
+| Resample Method: | Nearest Neighbor |
+| Target SRS: | EPSG:4326 - WGS 84 |
+
+
+10. Click on the **Start Georeferencing** button ![](./media/starttransform.png) to start the georeferencing of your image and add it to the Map Canvas.
+11.  
+
 
 ### Digitize features from a georeferenced map
 ### Labels
