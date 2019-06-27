@@ -150,12 +150,50 @@ Often, we want to be able to move around in our data frame examining different p
 1. Previously we used the main menu to enable a panel. This time, try right-clicking in any empty area of the toolbar then scroll down and select the **Spatial Bookmarks panel** from the menu that is presented.
 2. Right-click on your study_area layer and select **Zoom to layer**.
 3. Click on the Add Bookmark button and rename the resulting Spatial Bookmark: "SOHO"  
+![](./media/spatialbookmark.png)
 4. Click on the **Zoom Full** button to zoom to the world, then use the **Zoom to bookmark **button to return to your Area of Interest.
 
 ### Working with CRS
-Examine the Default CRS (web merc) change to BG
+Examine the Default CRS (web merc) change to UTM
+#### Examine the CRS of a data layer
+1. Right-click on the study area layer select the layer ∫ from the menu.
+2. Click on the source tab on the left side of the properties panel, and note in the section called Geometry and Coordinate reference system that the CRS of this layer is:  
+
+```EPSG:32630 WGS 84 / UTM zone 30N```  
+
+![](./media/layercrs.png)
+3. Click OK to close the Layer Properties Dialog  
+4. On the main menu Open the Project Properties from the Project menu.  
+5. Click on the CRS tab at the left and note that the project is in a projection called:  
+
+```EPSG:3857 WGS 84 Pseudo-Mercator```   
+
+*This is the projection of the basemap and is the default for the project because the basemap was the first layer that we added to the project.*  
+
+![](./media/projectcrs.png)
+
+#### Change the Project CRS  
+1. Locate the CRS of the **Study_Area** layer in the "**Recently used coordinate reference systems**" section, or type the EPSG code "**32630**" into the Filter box at the top of the **Properties** dialog.  
+![](./media/newprojectcrs.png)
+2. Click on the ```EPSG:32630 WGS 84 / UTM zone 30N``` and then click OK to change the CRS of teh Project to teh same as the layer **Study_Area**.
+3. Save your changes by clicking on the Save button ![](./media/savebutton.png) on the Project toolbar.  
+
 ### Create a data layer from an XY table?
-Add the deathAddresses.csv - test geocoding from the reverse geocode (maybe reverse geocode with whatever servcie is used so it's backward compat)
+Add the deathAddresses.csv 
+
+1. Click on the **Add Delimited Text Layer** button ![](./media/delimitedlayer.png)to open the Data Source Manager dialog.
+2. For **File Name**, browse to the **data** folder and select the **deathAddresses.csv**
+3. Set the remainder of the settings as follows, and click **Add & Close** to import the layer:    
+
+| setting | value |
+|--------------------------:|--------------------------------------------------------------------|
+| File Format:  | CSV |
+| Record and Field Options: | "First records has field names" = true "Detect field types" = true |
+| Geometry Definition: | Point coordinates: "X field" = 'xcoord, "Y field" = 'ycoord' |  
+
+![](./media/datasourcemanager.png)
+![](./media/addedpoints.png)
+
 ### Layer symbology
 Proportional symbols on Death Addresses
 ### Statistics on a field
