@@ -199,11 +199,22 @@ Add the deathAddresses.csv
 ### Layer symbology
 Proportional symbols on Death Addresses
 
-1. If not already, **click** on the **deathAddresses** layer to highlight it and focus the **Layer Styling panel** on this layer.
-2. Change teh Symology Type dropdown to "**Graduated**"
-3. Select **Num_Cases**
+1. If not already, **click** on the **deathAddresses** layer to highlight it and focus the **Layer Styling panel** on this layer and use the following settings to adjust the **deathAddresses Symbology**: 
 
+| setting | value |
+|------------------:|--------------------------------|
+| Symbology Type:  | Graduated |
+| Column: | Num_Cases |
+| Symbol: | *click to change the color if you like* |
+| Legend Precision: | 1 |
+| Method: | Size |
+| Size from: | 10,50,'Map Units' |
+| Classes>Mode: | Equal Interval |
+| Classes: | 3 |
 
+Because QGIS now features live update of symbology changes you should see these changes apply as you change the setting values.  
+
+![](./media/deathsymbol.png)
 
 ### Statistics on a field
 Num Cases
