@@ -139,7 +139,7 @@ that the bigger the number (1:60,000,000), the larger the area being displayed.
 Although 60,000,000 is bigger than 60, a scale 1:60,000,000 is a small scale and
 1:60 is a large scale because the division of 1/60,000,000 is smaller than 1/60.
 
-![](./media/image20.png)
+![](./media/image20-drop-shadow.png)
 
 ![](./media/image22.png)  The **Zoom to Layer** to a specific layer extent.
 
@@ -198,7 +198,7 @@ Add the deathAddresses.csv
 
 ![](./media/datasourcemanager.png)  
 
-![](./media/addedpoints.png)
+![](./media/addedpoints-drop-shadow.png)
 
 ### Layer symbology
 Proportional symbols on Death Addresses
@@ -218,25 +218,66 @@ Proportional symbols on Death Addresses
 
 Because QGIS now features live update of symbology changes you should see these changes apply as you change the setting values.  
 
-![](./media/deathsymbol.png)
+![](./media/deathsymbol-drop-shadow.png)
 
-### Statistics on a field
-Num Cases
+```addcontent: add drop shadow to points```
+
+### Viewing the Attribute Table
+
+1. Right-click on the **deathAddresses** layer in the **Layers** panel and select **Open Attribute Table**.
+2. Note that you can sort fields, scroll, select by attributes, etc...
+
+### Statistics on a field  
+
+As mentioned, above, the **Num_Cases** field in the Death Addresses data indicates the number of deaths at each address in the dataset. You can get a simple statistical snapshot of the variable from the Attribute Table.
+
+1. Close the Attribute Table
+2. On the pull-down menu go to **Vector > Analysis Tools > Basic Statistics for Fields**
+3. On the window select **Death Addresses** as the Input Vector layer and **Num_Cases** as the Target field.
+4. **Click Run** and **Close** 
+5. Look for the **Results Viewer** which should have been activated, and click on the **Hyperlink** to open the summary in a web browser.  
+![](./media/resultsviewer-drop-shadow.png)
+6. 
 
 ## Creating spatial data from a scanned reference source map
 ### Finding a map
+```addContent```  
 
 * earthworks.stanford.edu
 * DavidRumsey.com
 * OldMapsOnline.com
 
-[Gegend von London 1853](https://www.davidrumsey.com/luna/servlet/detail/RUMSEY~8~1~298861~90066747:Gegend-von-London-1853?sort=Pub_List_No_InitialSort%2CPub_Date%2CPub_List_No%2CSeries_No&qvq=w4s:/where%2FLondon%2B%252528England%252529%2Fwhen%2F1854;q:london%201854;sort:Pub_List_No_InitialSort%2CPub_Date%2CPub_List_No%2CSeries_No;lc:RUMSEY~8~1&mi=1&trs=2)
+### Finding an already georeferenced map
+We'll start by looking at this map [[Gegend von London 1853](https://www.davidrumsey.com/luna/servlet/detail/RUMSEY~8~1~298861~90066747:Gegend-von-London-1853?sort=Pub_List_No_InitialSort%2CPub_Date%2CPub_List_No%2CSeries_No&qvq=w4s:/where%2FLondon%2B%252528England%252529%2Fwhen%2F1854;q:london%201854;sort:Pub_List_No_InitialSort%2CPub_Date%2CPub_List_No%2CSeries_No;lc:RUMSEY~8~1&mi=1&trs=2)] of London on [https://davidrumsey.com](https://davidrumsey.com). It already has a "**Georeferenced** version, which can be viewed by clicking on the **Georeferencer** button at the top of the page.
+
+
 
 ### Adding a DavidRumsey.com map to QGIS
 
+Here is the **Web Map Tile Service WMTS URL** for the Gegend map:  
+
 ```http
 https://maps.georeferencer.com/georeferences/435516159934/2019-02-19T17:27:12.514288Z/wmts?key=mpIMvCWIYHCcIzNaqUSo&SERVICE=WMTS&REQUEST=GetCapabilities
-```   
+```
+ 
+This URL provides access to the georeferenced map outside of the DavidRumsey.com website.
+
+1. Select the WMTS URL, above, and copy it to your clipboard using right-click copy, or keyboard shortcuts, if you know them.  
+2. On the Main Menu **Layer>Add Layer>Add WMS/WMTS Layer** to open the **Data Source Manager**
+3. Click on teh **New** button to open the **Create a New WMS/WMTS Connection** dialog:  
+
+| Setting | Value |
+|--------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name: | Gegend Map |
+| URL: | ```https://maps.georeferencer.com/georeferences/435516159934/2019-02-19T17:27:12.514288Z/wmts?key=mpIMvCWIYHCcIzNaqUSo&SERVICE=WMTS&REQUEST=GetCapabilities``` | 
+![](./media/createwmtsconnect.png)
+4. Click OK to dismiss the dialog and save teh connection  
+5. Click **Connect**  
+![](./media/connectwmts.png)  
+6. In the **TIlesets** tab, highlight the Gegend map WMTS layer item at the top and click **Add & Close** to close the dialog and return to the **QGIS Map Canvas**
+7. **Right-click** on the **Gegend von London 1853** layer in the **Layer panel** and select **Zoom to layer**
+8. Use the **Navigation Tools** to explore the map service at sevaral different scales and extents.
+
 
 ### Georeference a map
 
