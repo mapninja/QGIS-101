@@ -364,7 +364,7 @@ the locations of the Water Pumps in our project.
 1. On the Main Menu go to menu go to **Processing \> Toolbox**
 2. Go to the **Processing Toolbox Window** and change the view from **Simplified Interface** to **Advanced Interface.**
 3. Search for **Voronoi.**
-4. **Double–click** the **v.voronoi** tool under **Grass commands.**
+4. **Double–click** the **Voronoi polygons** tool under **Grass commands.**
 5. On the v.voronoi tool window input the select **Water Pumps** as the **Input points layer.**
 
 ![](media/image004-drop-shadow.png)
