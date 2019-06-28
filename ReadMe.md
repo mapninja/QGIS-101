@@ -280,19 +280,23 @@ This URL provides access to the georeferenced map outside of the DavidRumsey.com
 7. **Right-click** on the **Gegend von London 1853** layer in the **Layer panel** and select **Zoom to layer**  
 8. Use the **Navigation Tools** to explore the map service at sevaral different scales and extents.  
 
-### Georeference a map
+### Georeference a map (Georeferencer seems to not be working properly)
 
 Georeference the John Snow 1854 SOHO map for digitizing the water pump locations.
 
 1. On the **Main Menu**, go to **Raster>Georeferencer** to open the **GDAL Georeferencer**
 2. Click on the **Open Raster** button  ![](./media/openraster.png) and browse to the **/data/** folder, select the **snow_map.png** and click **Open**
 3. Use the Zoom tool to Zoom to the upper-right corner of the John Snow Map, around the SOHO Square
-4. Click on the Add Point tool ![](./media/addgcp.png) and click on the upper right corner of the outside boundary of SOHO Square, as shown below:
+4. Click on the Add Point tool ![](./media/addgcp.png) and click on the upper right corner of the outside boundary of SOHO Square, as shown below:  
+
 ![](./media/addpointdialog-drop-shadow.png)  
+
 5. Click on the **From Map Canvas** button to switch back to the main QGIS Window
 6. Zoom to the same are of your Map Canvas, *preferably using your mouse wheel or keyboard shortcuts so you don't deactivate the Add Point tool, but you can always go back to the Georeferencer window and reactivate it* 
 7. Place **Ground Control Points** in each corner of the map, switching between the two windows using the **Add Point** tool, as needed. Add a final point somewhere near the center of the map.
-![](./media/georeferencer.png)  
+
+![](./media/georeferencer.png) 
+ 
 8. Click on the **Save GCP Points As...** button and save the points table as ```snow_map.png.points``` in your **/data/** folder.
 9. Click on the **Transformation Settings** button ![](./media/transform.png) and examine the settings. The defaults should be fine, as follows:  
 
@@ -304,11 +308,278 @@ Georeference the John Snow 1854 SOHO map for digitizing the water pump locations
 
 
 10. Click on the **Start Georeferencing** button ![](./media/starttransform.png) to start the georeferencing of your image and add it to the Map Canvas.
-11.  
+
 
 
 ### Digitize features from a georeferenced map
+
+If the last section didn't go well, add the ```John_Snow_Map.tif``` from the **/backup_data/**  
+
+1. On the **Main Menu**, go to **Layer>Create Layer** and select the **New Shapefile** option
+2. Use the following settings:
+
+| Setting | Value |
+|-----------------------:|-----------------------------------|
+| File name: | Save to /data/ as water_pumps.shp |
+| File encoding: | system |
+| Geometry type: | Point |
+| Additional dimensions: | None |
+| CRS: | EPSG:4326 - WGS 84 |
+
+![](./media/newshapefile.png)
+
+3. Add a New Field, add a **text  data** field called 'Label'
+4. Click OK to create the empty shapefile and add it as a layer.
+
+### Add points to your shapefile
+
+1. Right-click on the water_pumps layer and selelct **Toggle Editing**
+2. Click on the Add Point Feature button ![](./media/editpoint.png)and add a point for one of the Water Pumps in the John Snow map. 
+3. Label the point with the street it is on in the **Feature Attributes pop-up** and click ok to create the feature.
+![](./media/featureattributes.png)
+4. Continue digitizing Until you have captured all 12 water pumps in the map.
+5. Right-click on the water_pumps layer and selelct **Toggle Editing** and save your edits when you are prompted.
+
 ### Labels
+
+1. Click on the **water_pumps** layer to activate it in the **Layer Styling** panel
+2. Click on the **Label** tab of the **Layer Styling** panel
+3. Change the Label option to **Single labels**
+4. Set **Label with:** to the 'label' field.
+5. Increase the **Text Size** to **14**
+6. Click on Buffer tab and enable the **Draw text buffer** option. 
+
+![](./media/labels.png)
+
+## Basic spatial data analysis
+
+### Voronoi (Thiessen) polygon (Spatial Allocation)
+
+Thiessen polygons allocate space in an area of interest to a single feature per
+polygon. That is, within a Thiessen polygon, all other features are closer to
+the point that was used to generate that polygon than to any other point in the
+feature set. In this case, we will create a set of Thiessen polygons based upon
+the locations of the Water Pumps in our project.
+
+1. On the Main Menu go to menu go to **Processing \> Toolbox**
+2. Go to the **Processing Toolbox Window** and change the view from **Simplified Interface** to **Advanced Interface.**
+3. Search for **Voronoi.**
+4. **Double–click** the **v.voronoi** tool under **Grass commands.**
+5. On the v.voronoi tool window input the select **Water Pumps** as the **Input points layer.**
+
+![](media/image004-drop-shadow.png)
+
+On **Grass region, click the 3 dots** and select **Use layer/canvas extent.**
+
+1.  On the **Select extent window,** scroll down to find **Study Area.**
+
+2.  **Click OK**
+
+3.  **Click the 3 dots** besides the Voronoi diagram option, and **select Save
+    to file.**
+
+4.  Browse for the **EX_02_Snow_Map folder** and **save** the shapefile as
+    **Water \_Pump_Voronoi.**
+
+5.  **Click Run**
+
+![](media/image005-drop-shadow.png)
+
+**Open** the Attribute Table of the **Water_Pump_Voronoi** to explore how each
+Voronoi Polygon has the name of the pump enclosed.
+
+###  Spatial Join (Point Aggregation)
+
+Now that you have created the Thiessen polygon layer, you will “allocate” each
+of the deaths to one of the Thiessen polygons. To do this, we will use the
+**Spatial Join** tool.
+
+![](media/image006-drop-shadow.png)
+
+On the pull-down menu go to menu go to **Vector \> Data Management Tools \> Join
+attributes by location**
+
+1.  Select **Death Addresses** as the Target vector layer and
+    **Water_Pump_Voronoi** as the Join vector layer.
+
+2.  **Click Browse** to save the **Output Shapefile** as **Deaths_Allocated** in
+    your **Data** Folder.
+
+3.  **Click OK**
+
+4.  Click **Yes** to add the new layer to the TOC (Table of Contents) and Close
+    the Join the attributes by location window.
+
+5.  The resulting layer is added to the Map Canvas. **Open** its **attribute
+    table** to confirm that the attributes of the Water Pumps have been
+    transferred (Hint: OBJECT ID_2, Name).
+
+### Summary Statistics
+
+![](media/image007-drop-shadow.png)
+
+Finally, we would like to summarize the deaths in the outbreak, grouping our
+summary by the name of the Water Pump that each Death Address is nearest.
+
+1.  On the pull-down menu go to **Plugins\> Manage and install plugins.**
+
+2.  On the Plugins window search, type **Group Stats** and select it.
+
+3.  Click on **Install plugin.**
+
+4.  Close the **Plugin Window.**
+
+![](media/image008.png)
+
+>   After the installation a **GroupStats Tool** appears on the Vector Toolbar.
+
+1.  **Click** the **Group Stats tool**
+
+2.  **Select Deaths_Allocated** as Layer.
+
+![](media/image009-drop-shadow.png)
+
+Dag from **Fields** to **Column**: average, count and sum. On **Rows,** drag
+Name (originally from the Water_Pump data layer), and on **Value** drag
+**Num_Cases.**
+
+1.  **Click** on **Calculate** to visualize the summary table.
+
+2.  **Click** the Sum field header on the resulting table to **Sort descending**
+    on the **SUM_Num_Cases** field.
+
+Note that the **Broadwick Pump** has the highest value for two of three
+significant attributes: **Count** (No. of households), **Sum** (Total Deaths),
+and **Average** (Mean Deaths per Household).
+
+1.  On the **Group Stats Window,** go the **Data\> Save all to CSV file. Save**
+    the **Ouput Table** to your **Data** Folder and name it
+    **Deaths_Summary_by_Pumps**.
+
+2.  **Close** the Group Stats Window
+
+## Spatial Central Tendency
+
+### Spatial Mean (Mean Center)
+
+“The [mean center](https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-statistics-toolbox/h-how-mean-center-spatial-statistics-works.htm) is the average x- and y-coordinate of all the features in the study area. It's useful for tracking changes in the distribution or for comparing the distributions of different types of feature”
+
+![](media/image010-drop-shadow.png) 
+
+On the pull-down menu go to menu go to **Vector \> Analysis \> Mean
+coordinate(s)**
+
+1.  Select **Death Addresses** as the Input vector layer.
+
+2.  Leave the **Weight field** and **Unique ID field** as **Optional.**
+
+3.  **Click Browse** to **save** the Output Shapefile as:
+    **Deaths_Spatial_Mean** to the **Data** Folder**.**
+
+4.  **Click OK** to calculate the **Mean Center** and **Close**.
+
+5.  Change the **Symbology** for the **Deaths_Spatial_Mean layer** to something
+    that contrasts with the other symbologies.
+
+### Weighted Spatial Mean
+
+1.  **Run** the **Mean Center tool** again, this time assigning the
+    **Num_Cases** field as the **Weight Field**.
+
+2.  **Save** the **Output Shapefile** to the **Data** folder and name it
+    **Deaths_Weighted_Spatial_Mean**.
+
+3.  **Apply a symbology** to the **Deaths_Weighted_Spatial_Mean layer**.
+
+### Standard Distance
+
+![](media/image011-drop-shadow.png)
+
+On the pull-down menu go to menu go to **Processing \> Toolbox** to open the
+**Processing Toolbox Window.**
+
+![](media/image012-drop-shadow.png)
+
+On the **Processing Toolbox Window type** to **search**: **Spatial point pattern
+analysis** and **double click** to open the tool window.
+
+1.  Select **Death Addresses** as the **Point** layer.
+
+2.  Click the 3 dots and **Select** Save to a file.
+
+3.  **Give** an appropriate name and **Save** the **3 Output Files** on your
+    **Data** folder.
+
+![](media/image013-drop-shadow.png)
+
+**Click Run** to calculate the **Standard Distance, Mean Centre and Bounding
+Box.**
+
+>   The red dot is the mean center (no weight field; the large circle is the
+>   standard distance, which gives an indication of how closely the points are
+>   distributed around the mean center; and the rectangle is the bounding box,
+>   describing the smallest possible rectangle which will still enclose all the
+>   points.
+
+### Creating a surface from Point Data to Highlight “Hotspots”
+
+![media/image14.png](media/image014-drop-shadow.png)
+
+Kernel Density
+
+The Kernel Density Tool calculates a magnitude per unit area from the point
+features using a kernel function to fit a smoothly tapered surface to each
+point. The result is a raster dataset which can reveal “hotspots” in the array
+of point data.
+
+1.  Go to the **Processing Toolbox Window** and **type** to search **Kernel
+    Density Estimation (SAGA)** and **double click** to open the tool window.
+
+2.  **Select** the **Deaths_Allocated** layer as the **Points** features.
+
+3.  Select **Num_Cases** as the **Weight Field.**
+
+4.  Set the **Radius** option to **50** (this is in meters).
+
+5.  On the **Output Extent** option, click the 3 dots and select **Use
+    layer/canvas extent.**
+
+6.  On the resulting window search for **Study Area** and **Click OK.**
+
+![](media/image015-drop-shadow.png)
+
+Set the **Cellsize** to 10 (this is also in meters)
+
+1.  On the **Kernel Option click** the 3 dots and select **Save to File.**
+
+2.  **Save** the **Output Raster** to the **Data Folder** as **Kernel_Density.**
+
+3.  **Click Run** to run the Kernel Density tool.
+
+4.  **Right Click** the **Kernel_Density layer** and **open** its
+    **properties**.
+
+![](media/image016-drop-shadow.png)
+
+**Go** to the **Style Tab** and select
+
+1.  **Render Type:** Singleband gray
+
+    1.  **Color Gradient:** White to black
+
+    2.  **Contrast enhancement:** Stretch to MinMax.
+
+    3.  **Load min/max values:** Select min/max and click load.
+
+    4.  **Hue:** Check Colorize and select a color of your choice
+
+    5.  **Resampling:** Zoomed in **Bilinear.**
+
+    6.  **Click OK**
+
+![](media/image017-drop-shadow.png)
+
+
 
 ## Exploration and basic analysis of spatial point patterns
 ### Spatial Allocation with Thiessen polygons (using/controlling geoprocessing tools)
