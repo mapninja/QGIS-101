@@ -581,21 +581,3 @@ Set the **Cellsize** to 10 (this is also in meters)
 
 
 
-## Exploration and basic analysis of spatial point patterns
-### Spatial Allocation with Thiessen polygons (using/controlling geoprocessing tools)
-### Spatial Joins
-### Summary Statistics cased
-### Spatial mean & standard distance
-### Hotspot mapping using spatial interpolation
-
-## Creating a map layout
-
-### More Symbology
-### Customizing page options
-### Adding a Legend
-### Adding a Table
-### Adding a Scalebar
-### Adding text (citations)
-### Adding a Neatline
-### Export options and formats
-
