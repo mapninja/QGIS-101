@@ -6,51 +6,57 @@ This workshop aims to accomplish two things: Introduce participants to basic voc
 
 ## Setup
 
-```addcontent```
+Users should prepare for this workshop by installing the QGIS software appropriate for their operating system and downloading the data to their local hard drive.
 
 ### Software
 
-`Overview and Installation & Setup Guidance for the Packages covered will be presented here.`  
+This workshop was created using QGIS version 3.4, which is the long-term release. If you are in new user we suggest installing the latest long-term release for your operating system. While the latest beta release contains extra features and functionality, it often and also contains bugs and limited functionality, which can be frustrating to new users.
+
+To download QGIS for your operating system go to QGIS.org and click on the download link.
+
+[https://qgis.org/en/site/forusers/download.html](https://qgis.org/en/site/forusers/download.html)
 
 ### Data
 
-```update```
+The data package for the workshop can be downloaded from [https://github.com/mapninja/QGIS-101/archive/master.zip](https://github.com/mapninja/QGIS-101/archive/master.zip)
 
-The data package for the workshop can be downloaded from <here>
+The project data folder contains the following datasets:
 
-* deathAddresses.csv  
-* John_Snow_Map.tif
-* Study_Area.shp
-* Water_Pumps.geojson
+* **deathAddresses.csv**  - this is a table latitude and longitude coordinates for addresses affected by the cholera outbreak. This table also contains the number of deaths at each address.  
+* **snow_map.png.tif** - this is a non-georeferenced image of the map from John Snow's original report on the cholera outbreak of 1854. 
+* **Study_Area.shp** - This file is simply a rectangular feature that describes our area of interest.  
+
+
+#### Additional Files
+There is an extra backup data folder that contains versions of files that we will create during the workshop. These files are provided in case any of the steps can't be completed due to software errors or other problems. Welcome to working with open source.  
+* **Snow-cholera-map-1_modified** - this is a geo-referenced image of the map from John Snow's original report on the cholera outbreak of 1854.  
+* **Water_Pumps.geojson** - this is a spatial data file containing the locations of all of the water pumps recorded in John Snow's original map of the cholera outbreak.  Who woo hoo 
 
 ## Getting started on a project  
 
 In this section we will cover starting a new QGIS project. We will create a new map document, go over the basic QGIS interface, customize that interface, add a plug-in and bring a base map into your QGIS project.
 
-```addcontent```
-
 ### Create a Map Document
 
-```addcontent```
+1. To create a new map document, simply open QGIS and save the resulting empty document to the top level of your project folder, naming your new document something meaningful like "SnowMap.qgz" or "Cholera_Map.qgz"
 
-1. To create a new map document, simply open QGIS and save the resulting empty document to your project folder, naming your new document something meaningful like "SnowMap.qgz" or "Cholera_Map.qgz"
+Notice that when you save your map document a new folder in your data browser panel appears. This folder is called Project Hhome and is a shortcut to the folder containing your map document. It's always a good idea to save your map document to a high-level folder above your data and other project directories.
 
 ### Interface overview
 
-The QGIS interface is similar to many desktop GIS applications. 
-
-```addcontent```
+The QGIS interface is similar to many desktop GIS applications. The basic you GIS interface resembles most others GIS interfaces in that it uses a table of contents and data frame model for user interaction. In QGIS the **Table Of Contents** is referred to as the **Layers Panel** and the **Data Frame** is referred to as the **Map Canvas**.
 
 #### The Basic Components of the QGIS Interface
 
 The QGIS interface is made up of three basic components:
 
-**The Map Canvas **– the map canvas is where your visualizations of data will show up when you had a new data layer. This is where you will view the changes that are made when you adjust symbology, when you change the order of layers, or when you produce a new data set through geo-processing  
+**The Map Canvas** – the map canvas is where your visualizations of data will show up when you had a new data layer. This is where you will view the changes that are made when you adjust symbology, when you change the order of layers, or when you produce a new data set through geo-processing  
 
 **Tabbed Windows:**
 
 * **The Browser Window** – Functions much as Explorer does in Windows. In this window, you can visualize your drives and folders. Is the equivalent of ArcCatalog in ArcMap.
 * **The Layers Window** – This is where your added geographic and non-geographic datasets will show. This is similar to the Table of Contents in ArcMap.
+* **Other Panels** - there are many other panels that it is possible to enable in the QGIS interface. We will be making use of the **Processing Toolbox** and **Layer Styling** panel for this workshop.
 
 **General Toolbars:**
 
@@ -61,7 +67,7 @@ The QGIS interface is made up of three basic components:
 * **Help** – The question mark booklet is linked to the QGIS User Guide.
 * **Manage Layers** – This bar is to add layers (vector, raster, new shapefile layer)
 
-### Customize interface
+### Customize the interface
 
 When you first open QGIS, you might find the toolbars and panels that are neabled by default are more than your project calls for. Most panels and toolbars in the QGIS interface can be moved around by grabbing the title bar of panels, or the dotted handle on toolbars, and dragging them to the desired location in the interface. You can also use the View menu to turn panels and toobars on and off.
 
@@ -71,8 +77,8 @@ When you first open QGIS, you might find the toolbars and panels that are neable
 
 ![](./media/customize.png)
 
-### Add a plugin
-The first thing we would like to do is at a base map layer to our map project. We will use the quick map services plug-in to add a base map created by Stamen design. QGIS uses a plug-in model to extend the functionality of the basic software. Most plug-ins are contributed by members of the QGIS community and many extend functionality by adding interactivity with external services like geocoding , routing, and base map services.
+### Add a plugin  
+The first thing we would like to do is add a base map layer to our map project. We will use the **Quick Map Services** plug-in to add a base map created by [Stamen design](https://stamen.com/). QGIS uses a plug-in model to extend the functionality of the basic software. Most plug-ins are contributed by members of the QGIS community and many extend functionality by adding interactivity with external services like geocoding, routing, and base map services.
 
 1. On the **Main menu** of **QGIS**, find the **Plug-ins** menu and open the **Manage and install plugins** dialogue.  
 2. In the search box at the top of the dialogue, search for the term "QuickMapServices"    
@@ -84,21 +90,22 @@ The first thing we would like to do is at a base map layer to our map project. W
 
 ### Add a basemap service layer
 
-1. Installing the **QuickMapServices** plug-in should have added a new menu item to the QGIS main menu called "Web".
-2. Click on the web menu and from the **QuickMapServices** item select "**Settings**."
+1. Installing the **QuickMapServices** plug-in should have added a new menu item to the **QGIS Main Menu** called "Web".
+2. Click on the Web menu and from the **QuickMapServices** item select "**Settings**."
 3. Select the "**More Services**" tab and click on the "**Get contributed pack**" button. This will download a large list of web map services that can be used directly into GIS as base maps.  
 ![](./media/contribpack.png)  
 4. Once the contributed pack has been downloaded click **Save** to close the dialog.
 5. Now return to the quick map services menu, and select the **Stamen> Stamen Toner Lite** base map.
+6. **Save** your **map document**.
 
 ![](./media/stamenbasemap.png)
 
 ### Add an existing data layer
-Now we're going to add an existing data layer. The data layer that we will add describes our area of interest in this study. This layer Will provide us with a convenient way to orient our data frame to the area that we are interested in as well as providing a way to limit the processing extent of certain geo-processing tools.
+Now we're going to add an existing data layer. The data layer that we will add describes our **Area Of Interest** in this study. This layer will provide us with a convenient way to orient our data frame to the area that we are interested in, as well as providing a way to limit the processing extent of certain geo-processing tools.
 
-1. In the **QGIS Browser panel**, find the data folder for this workshop (Hint: look for the "**Project Home**" folder)a nd double-click on the **study_area.shp** file, to add it to your **map project**.
+1. In the **QGIS Browser panel**, find the data folder for this workshop (Hint: look for the "**Project Home**" folder) and double-click on the **study_area.shp** file, to add it to your **map project**.
 2. In the **Layers panel**, right-click on the **study_area layer** and select "**Zoom to layer**."
-3. On the **Main menu**, enable the **Layer styling panel** from the **Layer>Panels menu**. 
+3. On the **Main menu**, enable the **Layer styling panel** from the **View>Panels menu**. 
 4. In the **Layer styling panel** select **Simple fill** from the panel at the top, and change the **Fill style** to "**No brush**." If you would like you can also change the **Stroke color** & **Stroke width** of the stroke to make it more visible against the black-and-white basemap.
 5. **Save** your **map document**.
 
@@ -134,10 +141,7 @@ out to the selected feature.
 
 ### Scale
 
-When zooming in or out, the Scale Values at the bottom page change. Remember
-that the bigger the number (1:60,000,000), the larger the area being displayed.
-Although 60,000,000 is bigger than 60, a scale 1:60,000,000 is a small scale and
-1:60 is a large scale because the division of 1/60,000,000 is smaller than 1/60.
+When zooming in or out, the **Scale Values** at the bottom page changes. Remember that the bigger the number (**1:60,000,000**), the larger the area being displayed. Although **60,000,000** is bigger than **60**, a scale **1:60,000,000** is a small scale and **1:60** is a large scale because the division of **1/60,000,000** is smaller than **1/60**.
 
 ![](./media/image20-drop-shadow.png)
 
@@ -153,22 +157,23 @@ Often, we want to be able to move around in our data frame examining different p
 
 1. Previously we used the main menu to enable a panel. This time, try right-clicking in any empty area of the toolbar then scroll down and select the **Spatial Bookmarks panel** from the menu that is presented.
 2. Right-click on your study_area layer and select **Zoom to layer**.
-3. Click on the Add Bookmark button and rename the resulting Spatial Bookmark: "SOHO"  
+3. Click on the **Add Bookmark** button and rename the resulting Spatial Bookmark: "**SOHO**"  
 ![](./media/spatialbookmark.png)
-4. Click on the **Zoom Full** button to zoom to the world, then use the **Zoom to bookmark **button to return to your Area of Interest.
+4. Click on the **Zoom Full** button to zoom to the world, then use the **Zoom to bookmark ** button to return to your Area of Interest.
 
 ### Working with CRS
-Examine the Default CRS (web merc) change to UTM
+Here we will examine the default **Coordinate Reference System**, which should currently be sent to **Web Mercator** and we will change it to **Universal Transverse Mercator** to match our study area layer.  
+
 #### Examine the CRS of a data layer
-1. Right-click on the study area layer select the layer ∫ from the menu.
-2. Click on the source tab on the left side of the properties panel, and note in the section called Geometry and Coordinate reference system that the CRS of this layer is:  
+1. Right-click on the **study area** layer select the Layer Properties from the menu.
+2. Click on the **Source** tab on the left side of the properties panel, and note in the section called **Geometry And Coordinate Reference System** that the CRS of this layer is:  
 
 ```EPSG:32630 WGS 84 / UTM zone 30N```  
 
 ![](./media/layercrs.png)
-3. Click OK to close the Layer Properties Dialog  
-4. On the main menu Open the Project Properties from the Project menu.  
-5. Click on the CRS tab at the left and note that the project is in a projection called:  
+3. Click OK to close the **Layer Properties** Dialog  
+4. On the **Main Menu** Open the **Project Properties** from the **Project** menu.  
+5. Click on the **CRS** tab at the left and note that the project is in a projection called:  
 
 ```EPSG:3857 WGS 84 Pseudo-Mercator```   
 
@@ -179,11 +184,14 @@ Examine the Default CRS (web merc) change to UTM
 #### Change the Project CRS  
 1. Locate the CRS of the **Study_Area** layer in the "**Recently used coordinate reference systems**" section, or type the EPSG code "**32630**" into the Filter box at the top of the **Properties** dialog.  
 ![](./media/newprojectcrs.png)
-2. Click on the ```EPSG:32630 WGS 84 / UTM zone 30N``` and then click OK to change the CRS of teh Project to teh same as the layer **Study_Area**.
+2. Click on the ```EPSG:32630 WGS 84 / UTM zone 30N``` and then click OK to change the CRS of the Project to the same as the layer **Study_Area**.
 3. Save your changes by clicking on the Save button ![](./media/savebutton.png) on the Project toolbar.  
 
+You should now see that the base map and study area layer in the map canvas have rotated slightly and are now oriented north-south.
+
 ### Create a data layer from an XY table?
-Add the deathAddresses.csv 
+
+Often the data sets that you want to work with will not come as spatial data sets. In this step we will add a table of data that contains fields with the latitude and longitude coordinates of the deaths addresses we want to analyze.
 
 1. Click on the **Add Delimited Text Layer** button ![](./media/delimitedlayer.png)to open the Data Source Manager dialog.
 2. For **File Name**, browse to the **data** folder and select the **deathAddresses.csv**
@@ -193,7 +201,8 @@ Add the deathAddresses.csv
 |--------------------------:|--------------------------------------------------------------------|
 | File Format:  | CSV |
 | Record and Field Options: | "First records has field names" = true "Detect field types" = true |
-| Geometry Definition: | Point coordinates: "X field" = 'xcoord, "Y field" = 'ycoord' |   
+| Geometry Definition: | Point coordinates: "X field" = 'xcoord, "Y field" = 'ycoord' |
+| Geometry CRS: | EPSG:4326 - WGS 84 |
 
 
 ![](./media/datasourcemanager.png)  
@@ -220,7 +229,12 @@ Because QGIS now features live update of symbology changes you should see these 
 
 ![](./media/deathsymbol-drop-shadow.png)
 
-```addcontent: add drop shadow to points```
+#### Bonus: Adding Drop Shadows
+
+1. At the bottom of the Layer Styling panel, look for the "Draw Effects" option and check it, then click  on the star that becomes active.
+2. Check  the option for Drop Shadow and adjust the settings to see what effect they have.
+
+![](./media/dropshadowdeaths-drop-shadow.png)
 
 ### Viewing the Attribute Table
 
@@ -263,7 +277,7 @@ This URL provides access to the georeferenced map outside of the DavidRumsey.com
 
 1. Select the WMTS URL, above, and copy it to your clipboard using right-click copy, or keyboard shortcuts, if you know them.  
 2. On the Main Menu **Layer>Add Layer>Add WMS/WMTS Layer** to open the **Data Source Manager**
-3. Click on teh **New** button to open the **Create a New WMS/WMTS Connection** dialog:  
+3. Click on the **New** button to open the **Create a New WMS/WMTS Connection** dialog:  
 
 | Setting | Value |
 |--------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
