@@ -238,6 +238,8 @@ Because QGIS now features live update of symbology changes you should see these 
 
 ### Viewing the Attribute Table
 
+Up to this point we've been mostly concerned with building a new map project. Now we'd like to take a peek at some of the data behind the Map Canvas.
+
 1. Right-click on the **deathAddresses** layer in the **Layers** panel and select **Open Attribute Table**.
 2. Note that you can sort fields, scroll, select by attributes, etc...
 
@@ -249,21 +251,26 @@ As mentioned, above, the **Num_Cases** field in the Death Addresses data indicat
 2. On the pull-down menu go to **Vector > Analysis Tools > Basic Statistics for Fields**
 3. On the window select **Death Addresses** as the Input Vector layer and **Num_Cases** as the Target field.
 4. **Click Run** and **Close** 
-5. Look for the **Results Viewer** which should have been activated, and click on the **Hyperlink** to open the summary in a web browser.  
+5. Look for the **Results Viewer** panel which should have been activated, and click on the **Hyperlink** to open the summary in a web browser.  
 ![](./media/resultsviewer-drop-shadow.png)   
 
-## Creating spatial data from a scanned reference source map
-### Finding a map
-```addContent```  
+## Creating spatial data
 
-* earthworks.stanford.edu
-* DavidRumsey.com
-* OldMapsOnline.com
+### Finding a map
+
+There are many venues for searching for old maps as sources for spatial data and I've listed a few of our favorites, below. Of course, there are many considerations of scale, authority, projections, etc... when using a scanned map as a data source, it is possible to scan and georeference just about any map you can find reference data (another map to georeference to) for.
+
+* [earthworks.stanford.edu](earthworks.stanford.edu)
+* [DavidRumsey.com](DavidRumsey.com)
+* [OldMapsOnline.com](OldMapsOnline.com)
 
 ### Finding an already georeferenced map
+
 We'll start by looking at this map [[Gegend von London 1853](https://www.davidrumsey.com/luna/servlet/detail/RUMSEY~8~1~298861~90066747:Gegend-von-London-1853?sort=Pub_List_No_InitialSort%2CPub_Date%2CPub_List_No%2CSeries_No&qvq=w4s:/where%2FLondon%2B%252528England%252529%2Fwhen%2F1854;q:london%201854;sort:Pub_List_No_InitialSort%2CPub_Date%2CPub_List_No%2CSeries_No;lc:RUMSEY~8~1&mi=1&trs=2)] of London on [https://davidrumsey.com](https://davidrumsey.com). It already has a "**Georeferenced** version, which can be viewed by clicking on the **Georeferencer** button at the top of the page.
 
+![](./media/Gegend-drop-shadow.png)
 
+David Rumsey makes Open Geospatial Consortium (OGC) compliant services available for  georeferenced maps on his site. This means that you can use the maps directly in most modern GIS applications, including Arc GIS, QGIS, Arc  GIS Online, etc...
 
 ### Adding a DavidRumsey.com map to QGIS
 
@@ -292,38 +299,36 @@ This URL provides access to the georeferenced map outside of the DavidRumsey.com
 
 6. In the **Tilesets** tab, highlight the Gegend map WMTS layer item at the top and click **Add & Close** to close the dialog and return to the **QGIS Map Canvas**  
 7. **Right-click** on the **Gegend von London 1853** layer in the **Layer panel** and select **Zoom to layer**  
-8. Use the **Navigation Tools** to explore the map service at sevaral different scales and extents.  
+8. Use the **Navigation Tools** to explore the map service at several different scales and extents.  
+
+![](./media/gegendWMTS-drop-shadow.png)
 
 ### Georeference a map (Georeferencer seems to not be working properly)
 
-Georeference the John Snow 1854 SOHO map for digitizing the water pump locations.
+Our goal in this workshop is to explore the cholera outbreak of 1854 and determine whether there is evidence that the Broad Street pump is the source of the outbreak. To do this we want to spatially allocate all of the death addresses in our data set to the water pump that they are nearest. Often the data that we need for our analysis doesn't exist in the format that we need it in. In this section we will use John Snow's original map of the 1854 cholera outbreak as a source for the locations of the water pumps in our analysis. 
 
 1. On the **Main Menu**, go to **Raster>Georeferencer** to open the **GDAL Georeferencer**
 2. Click on the **Open Raster** button  ![](./media/openraster.png) and browse to the **/data/** folder, select the **snow_map.png** and click **Open**
+3. You should be prompted to set the **Coordinate Reference System** of the map you are adding. Since the map we are georeferencing doesn;t have one, use the **CRS** of the Map Document, instead, which is **EPSG:32630**
 3. Use the Zoom tool to Zoom to the upper-right corner of the John Snow Map, around the SOHO Square
 4. Click on the Add Point tool ![](./media/addgcp.png) and click on the upper right corner of the outside boundary of SOHO Square, as shown below:  
-
 ![](./media/addpointdialog-drop-shadow.png)  
 
 5. Click on the **From Map Canvas** button to switch back to the main QGIS Window
 6. Zoom to the same are of your Map Canvas, *preferably using your mouse wheel or keyboard shortcuts so you don't deactivate the Add Point tool, but you can always go back to the Georeferencer window and reactivate it* 
 7. Place **Ground Control Points** in each corner of the map, switching between the two windows using the **Add Point** tool, as needed. Add a final point somewhere near the center of the map.
-
 ![](./media/georeferencer.png) 
  
-8. Click on the **Save GCP Points As...** button and save the points table as ```snow_map.png.points``` in your **/data/** folder.
-9. Click on the **Transformation Settings** button ![](./media/transform.png) and examine the settings. The defaults should be fine, as follows:  
+8. Click on the **Transformation Settings** button ![](./media/transform.png) and examine the settings. The defaults should be fine, as follows:  
 
 | Setting | Value |
 |---------------------:|--------------------|
 | Transformation Type: | Polynomial 1 |
 | Resample Method: | Nearest Neighbor |
-| Target SRS: | EPSG:4326 - WGS 84 |
+| Target SRS: | EPSG:4326 - WGS 84 |  
 
-
-10. Click on the **Start Georeferencing** button ![](./media/starttransform.png) to start the georeferencing of your image and add it to the Map Canvas.
-
-
+9. Click on the **Start Georeferencing** button ![](./media/starttransform.png) to start the georeferencing of your image and add it to the Map Canvas.
+10. Close the Georeferencer and click OK when prompted to save your **GCP** points.
 
 ### Digitize features from a georeferenced map
 
@@ -347,7 +352,7 @@ If the last section didn't go well, add the ```John_Snow_Map.tif``` from the **/
 
 ### Add points to your shapefile
 
-1. Right-click on the water_pumps layer and selelct **Toggle Editing**
+1. Right-click on the water_pumps layer and select **Toggle Editing**
 2. Click on the Add Point Feature button ![](./media/editpoint.png)and add a point for one of the Water Pumps in the John Snow map. 
 3. Label the point with the street it is on in the **Feature Attributes pop-up** and click ok to create the feature.
 ![](./media/featureattributes.png)
@@ -380,21 +385,13 @@ the locations of the Water Pumps in our project.
 3. Search for **Voronoi.**
 4. **Double–click** the **Voronoi polygons** tool under **Grass commands.**
 5. On the v.voronoi tool window input the select **Water Pumps** as the **Input points layer.**
-
 ![](media/image004-drop-shadow.png)
 
-On **Grass region, click the 3 dots** and select **Use layer/canvas extent.**
-
+6. On **Grass region, click the 3 dots** and select **Use layer/canvas extent.**
 1.  On the **Select extent window,** scroll down to find **Study Area.**
-
 2.  **Click OK**
-
-3.  **Click the 3 dots** besides the Voronoi diagram option, and **select Save
-    to file.**
-
-4.  Browse for the **EX_02_Snow_Map folder** and **save** the shapefile as
-    **Water \_Pump_Voronoi.**
-
+3.  **Click the 3 dots** beside the Voronoi diagram option, and **select Save to file.**
+4.  Browse for the **EX_02_Snow_Map folder** and **save** the shapefile as **Water \_Pump_Voronoi.**
 5.  **Click Run**
 
 ![](media/image005-drop-shadow.png)
