@@ -374,11 +374,7 @@ If the last section didn't go well, add the ```John_Snow_Map.tif``` from the **/
 
 ### Voronoi (Thiessen) polygon (Spatial Allocation)
 
-Thiessen polygons allocate space in an area of interest to a single feature per
-polygon. That is, within a Thiessen polygon, all other features are closer to
-the point that was used to generate that polygon than to any other point in the
-feature set. In this case, we will create a set of Thiessen polygons based upon
-the locations of the Water Pumps in our project.
+Thiessen polygons allocate space in an area of interest to a single feature per polygon. That is, within a Thiessen polygon, all other features are closer to the point that was used to generate that polygon than to any other point in the feature set. In this case, we will create a set of Thiessen polygons based upon the locations of the Water Pumps in our project. This will allow us to easily allocate all of the points in our death addresses dataset to the water pump that they are nearest using a simple spatial join.
 
 1. On the Main Menu go to menu go to **Processing \> Toolbox**
 2. Go to the **Processing Toolbox Window** and change the view from **Simplified Interface** to **Advanced Interface.**
@@ -391,29 +387,23 @@ the locations of the Water Pumps in our project.
 1.  On the **Select extent window,** scroll down to find **Study Area.**
 2.  **Click OK**
 3.  **Click the 3 dots** beside the Voronoi diagram option, and **select Save to file.**
-4.  Browse for the **EX_02_Snow_Map folder** and **save** the shapefile as **Water \_Pump_Voronoi.**
+4.  Browse to the **EX_02_Snow_Map folder** and **save** the shapefile as **Voronoi.**
 5.  **Click Run**
-
 ![](media/image005-drop-shadow.png)
-
-**Open** the Attribute Table of the **Water_Pump_Voronoi** to explore how each
-Voronoi Polygon has the name of the pump enclosed.
+6. **Open** the Attribute Table of the **Voronoi** layer to explore how each Voronoi Polygon has the name of the pump enclosed.
 
 ###  Spatial Join (Point Aggregation)
 
-Now that you have created the Thiessen polygon layer, you will “allocate” each
-of the deaths to one of the Thiessen polygons. To do this, we will use the
-**Spatial Join** tool.
+Now that you have created the Voronoi polygon layer, you will “allocate” each of the deaths to one of the Voronoi polygons. To do this, we will use the **Join Attributes by Location** tool.
 
-![](media/image006-drop-shadow.png)
+![](media/spatialJoin.png)
 
-On the pull-down menu go to menu go to **Vector \> Data Management Tools \> Join
-attributes by location**
+1. On the pull-down menu go to menu go to **Vector \> Data Management Tools \> Join attributes by location**
 
 1.  Select **Death Addresses** as the Target vector layer and
     **Water_Pump_Voronoi** as the Join vector layer.
 
-2.  **Click Browse** to save the **Output Shapefile** as **Deaths_Allocated** in
+2.  **Click Browse** to save the **Output GeoJSON** as **Deaths_Allocated** in
     your **Data** Folder.
 
 3.  **Click OK**
@@ -421,16 +411,13 @@ attributes by location**
 4.  Click **Yes** to add the new layer to the TOC (Table of Contents) and Close
     the Join the attributes by location window.
 
-5.  The resulting layer is added to the Map Canvas. **Open** its **attribute
-    table** to confirm that the attributes of the Water Pumps have been
-    transferred (Hint: OBJECT ID_2, Name).
+5.  The resulting layer is added to the Map Canvas. **Open** its **attribute table** to confirm that the attributes of the Water Pumps have been transferred:
+![](media/joinedTable.png)
 
 ### Summary Statistics
 
-![](media/image007-drop-shadow.png)
+Finally, we would like to summarize the deaths in the outbreak, grouping our summary by the name of the Water Pump that each Death Address is nearest. We will do this using the **Group Stats Tool** which allows us to do a statistical summary similar to the one we did earlier on the entire data set, but this time grouped by nearest water pump.
 
-Finally, we would like to summarize the deaths in the outbreak, grouping our
-summary by the name of the Water Pump that each Death Address is nearest.
 
 1.  On the pull-down menu go to **Plugins\> Manage and install plugins.**
 
@@ -439,25 +426,25 @@ summary by the name of the Water Pump that each Death Address is nearest.
 3.  Click on **Install plugin.**
 
 4.  Close the **Plugin Window.**
+![](media/image007-drop-shadow.png)
 
-![](media/image008.png)
 
->   After the installation a **GroupStats Tool** appears on the Vector Toolbar.
+After the installation a **GroupStats Tool** ![](media/image008.png) appears on the Vector Toolbar.
 
-1.  **Click** the **Group Stats tool**
+1. **Click** the **Group Stats tool**
 
-2.  **Select Deaths_Allocated** as Layer.
-
+2. **Select Deaths_Allocated** as Layer.
 ![](media/image009-drop-shadow.png)
 
-Dag from **Fields** to **Column**: average, count and sum. On **Rows,** drag
-Name (originally from the Water_Pump data layer), and on **Value** drag
-**Num_Cases.**
+Drag from **Fields** to **Column**: average, count and sum. 
+
+On **Rows,** drag Name (originally from the Water_Pump data layer), and 
+
+on **Value** drag **Num_Cases.**
 
 1.  **Click** on **Calculate** to visualize the summary table.
 
-2.  **Click** the Sum field header on the resulting table to **Sort descending**
-    on the **SUM_Num_Cases** field.
+2.  **Click** the Sum field header on the resulting table to **Sort descending** on the **SUM_Num_Cases** field.
 
 Note that the **Broadwick Pump** has the highest value for two of three
 significant attributes: **Count** (No. of households), **Sum** (Total Deaths),
