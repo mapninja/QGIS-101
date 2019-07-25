@@ -444,15 +444,13 @@ on **Value** drag **Num_Cases.**
 
 1.  **Click** on **Calculate** to visualize the summary table.
 
-2.  **Click** the Sum field header on the resulting table to **Sort descending** on the **SUM_Num_Cases** field.
+2.  **Click** the Sum field header on the resulting table to **Sort descending** on the **SUM\_Num\_Cases** field.
 
 Note that the **Broadwick Pump** has the highest value for two of three
 significant attributes: **Count** (No. of households), **Sum** (Total Deaths),
 and **Average** (Mean Deaths per Household).
 
-1.  On the **Group Stats Window,** go the **Data\> Save all to CSV file. Save**
-    the **Ouput Table** to your **Data** Folder and name it
-    **Deaths_Summary_by_Pumps**.
+1.  On the **Group Stats Window,** go the **Data\> Save all to CSV file. Save** the **Ouput Table** to your **Data** Folder and name it **Deaths\_Summary\_by\_Pumps**.
 
 2.  **Close** the Group Stats Window
 
@@ -460,23 +458,22 @@ and **Average** (Mean Deaths per Household).
 
 ### Spatial Mean (Mean Center)
 
-“The [mean center](https://desktop.arcgis.com/en/arcmap/latest/tools/spatial-statistics-toolbox/h-how-mean-center-spatial-statistics-works.htm) is the average x- and y-coordinate of all the features in the study area. It's useful for tracking changes in the distribution or for comparing the distributions of different types of feature”
+The Mean Center is the average x- and y-coordinate of all the features in the study area. It's useful for tracking changes in the distribution or for comparing the distributions of different types of features. Here, we will use the Mean Center to highlight the distribution of deaths around the Broad Street Pump.  
 
+1. On the pull-down menu go to menu go to **Vector \> Analysis \> Mean
+coordinate(s)**
 ![](media/image010-drop-shadow.png) 
 
-On the pull-down menu go to menu go to **Vector \> Analysis \> Mean
-coordinate(s)**
-
-1.  Select **Death Addresses** as the Input vector layer.
+1.  Select **Deaths_Allocated** as the Input vector layer.
 
 2.  Leave the **Weight field** and **Unique ID field** as **Optional.**
 
 3.  **Click Browse** to **save** the Output Shapefile as:
-    **Deaths_Spatial_Mean** to the **Data** Folder**.**
+    **Deaths\_Spatial\_Mean** to the **Data** Folder**.**
 
 4.  **Click OK** to calculate the **Mean Center** and **Close**.
 
-5.  Change the **Symbology** for the **Deaths_Spatial_Mean layer** to something
+5.  Change the **Symbology** for the **Deaths\_Spatial\_Mean layer** to something
     that contrasts with the other symbologies.
 
 ### Weighted Spatial Mean
