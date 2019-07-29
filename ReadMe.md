@@ -303,13 +303,13 @@ This URL provides access to the georeferenced map outside of the DavidRumsey.com
 
 ![](./media/gegendWMTS-drop-shadow.png)
 
-### Georeference a map (Georeferencer seems to not be working properly)
+### Georeference a map  
 
 Our goal in this workshop is to explore the cholera outbreak of 1854 and determine whether there is evidence that the Broad Street pump is the source of the outbreak. To do this we want to spatially allocate all of the death addresses in our data set to the water pump that they are nearest. Often the data that we need for our analysis doesn't exist in the format that we need it in. In this section we will use John Snow's original map of the 1854 cholera outbreak as a source for the locations of the water pumps in our analysis. 
 
 1. On the **Main Menu**, go to **Raster>Georeferencer** to open the **GDAL Georeferencer**
 2. Click on the **Open Raster** button  ![](./media/openraster.png) and browse to the **/data/** folder, select the **snow_map.png** and click **Open**
-3. You should be prompted to set the **Coordinate Reference System** of the map you are adding. Since the map we are georeferencing doesn;t have one, use the **CRS** of the Map Document, instead, which is **EPSG:32630**
+3. You should be prompted to set the **Coordinate Reference System** of the map you are adding. Since the map we are georeferencing doesn't have one, use the **CRS** of the Map Document, instead, which is **EPSG:32630**, which is the CRS we want the map to end up in.  
 3. Use the Zoom tool to Zoom to the upper-right corner of the John Snow Map, around the SOHO Square
 4. Click on the Add Point tool ![](./media/addgcp.png) and click on the upper right corner of the outside boundary of SOHO Square, as shown below:  
 ![](./media/addpointdialog-drop-shadow.png)  
@@ -380,7 +380,7 @@ Thiessen polygons allocate space in an area of interest to a single feature per 
 2. Go to the **Processing Toolbox Window** and change the view from **Simplified Interface** to **Advanced Interface.**
 3. Search for **Voronoi.**
 4. **Double–click** the **Voronoi polygons** tool under **Grass commands.**
-5. On the v.voronoi tool window input the select **Water Pumps** as the **Input points layer.**
+5. On the v.voronoi tool window input the select **Water Pumps** as the **Input points layer.**  
 ![](media/image004-drop-shadow.png)
 
 6. On **Grass region, click the 3 dots** and select **Use layer/canvas extent.**
@@ -388,13 +388,14 @@ Thiessen polygons allocate space in an area of interest to a single feature per 
 2.  **Click OK**
 3.  **Click the 3 dots** beside the Voronoi diagram option, and **select Save to file.**
 4.  Browse to the **EX_02_Snow_Map folder** and **save** the shapefile as **Voronoi.**
-5.  **Click Run**
+5.  **Click Run**  
 ![](media/image005-drop-shadow.png)
+
 6. **Open** the Attribute Table of the **Voronoi** layer to explore how each Voronoi Polygon has the name of the pump enclosed.
 
-###  Spatial Join (Point Aggregation)
+### Spatial Join (Point Aggregation)
 
-Now that you have created the Voronoi polygon layer, you will “allocate” each of the deaths to one of the Voronoi polygons. To do this, we will use the **Join Attributes by Location** tool.
+Now that you have created the Voronoi polygon layer, you will “allocate” each of the deaths to one of the Voronoi polygons. To do this, we will use the **Join Attributes by Location** tool. Conceptually, what we will be doing is like passing our points through the polygons so that the polygon's attributes "stick" to the points.  
 
 ![](media/spatialJoin.png)
 
@@ -411,7 +412,7 @@ Now that you have created the Voronoi polygon layer, you will “allocate” eac
 4.  Click **Yes** to add the new layer to the TOC (Table of Contents) and Close
     the Join the attributes by location window.
 
-5.  The resulting layer is added to the Map Canvas. **Open** its **attribute table** to confirm that the attributes of the Water Pumps have been transferred:
+5.  The resulting layer is added to the Map Canvas. **Open** its **attribute table** to confirm that the attributes of the Water Pumps have been transferred:  
 ![](media/joinedTable.png)
 
 ### Summary Statistics
@@ -425,7 +426,7 @@ Finally, we would like to summarize the deaths in the outbreak, grouping our sum
 
 3.  Click on **Install plugin.**
 
-4.  Close the **Plugin Window.**
+4.  Close the **Plugin Window.**  
 ![](media/image007-drop-shadow.png)
 
 
@@ -433,7 +434,7 @@ After the installation a **GroupStats Tool** ![](media/image008.png) appears on 
 
 1. **Click** the **Group Stats tool**
 
-2. **Select Deaths_Allocated** as Layer.
+2. **Select Deaths_Allocated** as Layer.  
 ![](media/image009-drop-shadow.png)
 
 Drag from **Fields** to **Column**: average, count and sum. 
@@ -454,39 +455,38 @@ and **Average** (Mean Deaths per Household).
 
 2.  **Close** the Group Stats Window
 
-## Spatial Central Tendency
+## Basic Measures of Spatial Central Tendency
 
 ### Spatial Mean (Mean Center)
 
 The Mean Center is the average x- and y-coordinate of all the features in the study area. It's useful for tracking changes in the distribution or for comparing the distributions of different types of features. Here, we will use the Mean Center to highlight the distribution of deaths around the Broad Street Pump.  
 
+First, we will calculate a simple spatial mean. This is simply the mean center of the **distribution of locations** 
+
 1. On the pull-down menu go to menu go to **Vector \> Analysis \> Mean
-coordinate(s)**
-![](media/image010-drop-shadow.png) 
+coordinate(s)**  
+![](media/image010-drop-shadow.png)  
 
-1.  Select **Deaths_Allocated** as the Input vector layer.
-
-2.  Leave the **Weight field** and **Unique ID field** as **Optional.**
-
-3.  **Click Browse** to **save** the Output Shapefile as:
+1. Select **Deaths_Allocated** as the Input vector layer.
+2. Leave the **Weight field** and **Unique ID field** as **Optional.**
+3. **Click Browse** to **save** the Output Shapefile as:
     **Deaths\_Spatial\_Mean** to the **Data** Folder**.**
-
-4.  **Click OK** to calculate the **Mean Center** and **Close**.
-
-5.  Change the **Symbology** for the **Deaths\_Spatial\_Mean layer** to something
-    that contrasts with the other symbologies.
+4. **Click OK** to calculate the **Mean Center** and **Close**.
+5. Change the **Symbology** for the **Deaths\_Spatial\_Mean layer** to something that contrasts with the other symbologies.
 
 ### Weighted Spatial Mean
 
-1.  **Run** the **Mean Center tool** again, this time assigning the
-    **Num_Cases** field as the **Weight Field**.
+1. **Run** the **Mean Center tool** again, this time assigning the
+   **Num_Cases** field as the **Weight Field**.
+2. **Save** the **Output Shapefile** to the **Data** folder and name it **Deaths_Weighted_Spatial_Mean**.
+3. **Apply a symbology** to the **Deaths_Weighted_Spatial_Mean layer**.
 
-2.  **Save** the **Output Shapefile** to the **Data** folder and name it
-    **Deaths_Weighted_Spatial_Mean**.
-
-3.  **Apply a symbology** to the **Deaths_Weighted_Spatial_Mean layer**.
+#### Bonus:  
+Set the "Unique ID" option to the "label" field and observe the results. This has the effect of "casing" the spatial mean, based upon the spatial allocation that we did earlier.
 
 ### Standard Distance
+
+The Standrad Distance is the spatial statistics equivalent of the standard deviation. It describes the radius around the spatial mean (or weighted spatial mean), which contains 68% of locations in your dataset. It can be very useful for working with GPS data.
 
 ![](media/image011-drop-shadow.png)
 
@@ -520,27 +520,17 @@ Box.**
 
 ![media/image14.png](media/image014-drop-shadow.png)
 
-Kernel Density
+#### Kernel Density
 
-The Kernel Density Tool calculates a magnitude per unit area from the point
-features using a kernel function to fit a smoothly tapered surface to each
-point. The result is a raster dataset which can reveal “hotspots” in the array
-of point data.
+The Kernel Density Tool calculates a magnitude per unit area from the point features using a kernel function to fit a smoothly tapered surface to each point. The result is a raster dataset which can reveal “hotspots” in the array of point data.
 
-1.  Go to the **Processing Toolbox Window** and **type** to search **Kernel
-    Density Estimation (SAGA)** and **double click** to open the tool window.
-
+1.  Go to the **Processing Toolbox Window** and **type** to search **Kernel Density Estimation (SAGA)** and **double click** to open the tool window.
 2.  **Select** the **Deaths_Allocated** layer as the **Points** features.
-
 3.  Select **Num_Cases** as the **Weight Field.**
-
 4.  Set the **Radius** option to **50** (this is in meters).
-
 5.  On the **Output Extent** option, click the 3 dots and select **Use
     layer/canvas extent.**
-
 6.  On the resulting window search for **Study Area** and **Click OK.**
-
 ![](media/image015-drop-shadow.png)
 
 Set the **Cellsize** to 10 (this is also in meters)
@@ -573,6 +563,34 @@ Set the **Cellsize** to 10 (this is also in meters)
     6.  **Click OK**
 
 ![](media/image017-drop-shadow.png)
+
+## Creating a Basic Map Layout (in process)
+
+Toggle off uneeded layers & Arrange layers in order of visibility
+
+Change Project CRS to Basemap CRS
+
+Make Symbology & Label adjustments
+
+Rename Layers
+
+Switch to Layout Mode
+
+Add Map
+
+Add Legend
+
+Add Scale
+
+Add Neatline
+
+Add Text
+
+Print to PNG
+
+
+
+
 
 
 
