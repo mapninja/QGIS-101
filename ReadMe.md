@@ -1,14 +1,14 @@
 # QGIS in 60 Minutes
 
-## Overview  
+# Overview  
 
 This workshop will introduce participants to QGIS, a free and open source desktop GIS application, comparable and competetive in many way with Esri's ArcGIS Desktop. We will focus on a very basic introduction to the QGIS interface, and common data carpentry tasks that will come in handy as you prepare and create vector data, in particular, for use in Google Earth Engine. 
 
-## Setup
+# Setup
 
 Users should prepare for this workshop by installing the QGIS software appropriate for their operating system and downloading the data to their local hard drive.
 
-### Software
+## Software
 
 This workshop was created using QGIS version 3.4, which is the long-term release. If you are in new user we suggest installing the latest long-term release for your operating system. While the latest beta release contains extra features and functionality, it often and also contains bugs and limited functionality, which can be frustrating to new users.
 
@@ -16,9 +16,9 @@ To download QGIS for your operating system go to QGIS.org and click on the downl
 
 [https://qgis.org/en/site/forusers/download.html](https://qgis.org/en/site/forusers/download.html)
 
-### Data
+## Data
 
-The data package for the workshop can be downloaded from [https://github.com/mapninja/QGIS-101/archive/master.zip](https://github.com/mapninja/QGIS-101/archive/master.zip)
+The data package for the workshop can be downloaded from [https://github.com/StanfordGeospatialCenter/QGIS-in-60/archive/master.zip](https://github.com/StanfordGeospatialCenter/QGIS-in-60/archive/master.zip)
 
 The project data folder contains the following datasets:
 
@@ -28,8 +28,8 @@ The project data folder contains the following datasets:
 * **Water_Pumps.geojson** - this is a spatial data file containing the locations of all of the water pumps recorded in John Snow's original map of the cholera outbreak. We'll actually create a version of this, ourselves, but I have included this, just in case. 
 
 
-#Let's go!
-## Getting started on a project (10 minutes)
+## Let's go!
+# Getting started on a project (10 minutes)
 
 In this section we will cover starting a new QGIS project. We will create a new map document, go over the basic QGIS interface, customize that interface, add a plug-in and bring a base map into your QGIS project.
 
@@ -39,11 +39,11 @@ In this section we will cover starting a new QGIS project. We will create a new 
 
 *Notice that when you save your map document a new folder in your data browser panel appears. This folder is called Project Home and is a shortcut to the folder containing your map document. It's always a good idea to save your map document to a high-level folder above your data and other project directories.*
 
-### Interface overview
+# Interface overview
 
 The QGIS interface is similar to many desktop GIS applications. The basic you GIS interface resembles most others GIS interfaces in that it uses a table of contents and data frame model for user interaction. In QGIS the **Table Of Contents** is referred to as the **Layers Panel** and the **Data Frame** is referred to as the **Map Canvas**.
 
-#### The Basic Components of the QGIS Interface
+## The Basic Components of the QGIS Interface
 
 The QGIS interface is made up of three basic components:
 
@@ -64,7 +64,7 @@ The QGIS interface is made up of three basic components:
 * **Help** – The question mark booklet is linked to the QGIS User Guide.
 * **Manage Layers** – This bar is to add layers (vector, raster, new shapefile layer)
 
-### Customize the interface
+# Customize the interface
 
 When you first open QGIS, you might find the toolbars and panels that are enabled by default are more than your project calls for. Most panels and toolbars in the QGIS interface can be moved around by grabbing the title bar of panels, or the dotted handle on toolbars, and dragging them to the desired location in the interface. You can also use the View menu to turn panels and toobars on and off.
 
@@ -74,7 +74,7 @@ When you first open QGIS, you might find the toolbars and panels that are enable
 
 ![](./media/customize.png)
 
-### Add a plugin  (10min)
+# Add a plugin
 The first thing we would like to do is add a base map layer to our map project. We will use the **Quick Map Services** plug-in to add a base map created by [Stamen design](https://stamen.com/). QGIS uses a plug-in model to extend the functionality of the basic software. Most plug-ins are contributed by members of the QGIS community and many extend functionality by adding interactivity with external services like geocoding, routing, and base map services.
 
 1. On the **Main menu** of **QGIS**, find the **Plug-ins** menu and open the **Manage and install plugins** dialogue.  
@@ -85,7 +85,7 @@ The first thing we would like to do is add a base map layer to our map project. 
 
 ![](./media/pluginMenu.png)  
 
-### Add a basemap service layer
+# Add a basemap service layer
 
 1. Installing the **QuickMapServices** plug-in should have added a new menu item to the **QGIS Main Menu** called "Web".
 2. Click on the Web menu and from the **QuickMapServices** item select "**Settings**."
@@ -97,7 +97,7 @@ The first thing we would like to do is add a base map layer to our map project. 
 
 ![](./media/stamenbasemap.png)
 
-### Add an existing data layer
+# Add an existing data layer
 Now we're going to add an existing data layer. The data layer that we will add describes our **Area Of Interest** in this study. This layer will provide us with a convenient way to orient our data frame to the area that we are interested in, as well as providing a way to limit the processing extent of certain geo-processing tools.
 
 1. In the **QGIS Browser panel**, find the data folder for this workshop (Hint: look for the "**Project Home**" folder) and double-click on the **study_area.shp** file, to add it to your **map project**.
@@ -108,7 +108,7 @@ Now we're going to add an existing data layer. The data layer that we will add d
 
 ![](./media/studyareaadd.png)
 
-### Explore navigation tools (5 minutes)
+# Explore navigation tools
 
 Now we will explore the **basic navigation tools** in QGIS. These are the tools that you will 
 
@@ -134,9 +134,11 @@ working at a local level, but using one or more layers that are global in extent
 (for example, many of the network base map services).
 
 ![](media/image19.png)  The **Zoom to Selection** changes the Extent of your Map Canvas and zooms in or
-out to the selected feature.
+out to the selected feature.  
 
-### *Explanation: A Sense of Scale*
+----
+
+## *Explanation: A Sense of Scale*
 
 When zooming in or out, the **Scale Values** at the bottom page changes. Remember that the bigger the number (**1:60,000,000**), the larger the area being displayed. Although **60,000,000** is bigger than **60**, a scale **1:60,000,000** is a small scale and **1:60** is a large scale because the division of **1/60,000,000** is smaller than **1/60**.
 
@@ -148,7 +150,10 @@ When zooming in or out, the **Scale Values** at the bottom page changes. Remembe
 
 ![](./media/image25.png)  The **Refresh Button** will reload your Map Extent
 
-### *On Your Own Sidetrip: Spatial Bookmarks*
+
+----
+
+## *On Your Own Sidetrip: Spatial Bookmarks*
 
 Often, we want to be able to move around in our data frame examining different parts of the map zooming in and out, and then returning to our primary area of interest. This can be easily accommodated through the use of spatial bookmarks. Here you'll create a spatial bookmark which allows us to quickly return to the area that we are interested in.
 
@@ -156,9 +161,12 @@ Often, we want to be able to move around in our data frame examining different p
 2. Right-click on your study_area layer and select **Zoom to layer**.
 3. Click on the **Add Bookmark** button and rename the resulting Spatial Bookmark: "**SOHO**"  
 ![](./media/spatialbookmark.png)
-4. Click on the **Zoom Full** button to zoom to the world, then use the **Zoom to bookmark ** button to return to your Area of Interest.
+4. Click on the **Zoom Full** button to zoom to the world, then use the **Zoom to bookmark ** button to return to your Area of Interest.  
 
-## Working with CRS in QGIS (10min)
+
+----
+
+# Working with CRS in QGIS
 Here we will examine the default **Coordinate Reference System**, which should currently be sent to **Web Mercator** and we will change it to **Universal Transverse Mercator** to match our study area layer.  
 
 #### Examine the CRS of a data layer
@@ -178,7 +186,7 @@ Here we will examine the default **Coordinate Reference System**, which should c
 
 ![](./media/projectcrs.png)
 
-#### Change the Project CRS  
+## Change the Project CRS  
 1. Locate the CRS of the **Study_Area** layer in the "**Recently used coordinate reference systems**" section, or type the EPSG code "**32630**" into the Filter box at the top of the **Properties** dialog.  
 ![](./media/newprojectcrs.png)
 2. Click on the ```EPSG:32630 WGS 84 / UTM zone 30N``` and then click OK to change the CRS of the Project to the same as the layer **Study_Area**.
@@ -186,7 +194,7 @@ Here we will examine the default **Coordinate Reference System**, which should c
 
 You should now see that the base map and study area layer in the map canvas have rotated slightly and are now oriented north-south.
 
-## Working with data in QGIS
+# Working with data in QGIS
 
 ## Create a data layer from an XY table (10 Min)
 
@@ -206,9 +214,11 @@ Often the data sets that you want to work with will not come as spatial data set
 
 ![](./media/datasourcemanager.png)  
 
-![](./media/addedpoints-drop-shadow.png)
+![](./media/addedpoints-drop-shadow.png)  
 
-### *On Your Own Sidetrip: Layer symbology* 
+----
+
+## *On Your Own Sidetrip: Layer symbology* 
 Proportional symbols on Death Addresses
 
 1. If not already, **click** on the **deathAddresses** layer to highlight it and focus the **Layer Styling panel** on this layer and use the following settings to adjust the **deathAddresses Symbology**: 
@@ -234,7 +244,9 @@ QGIS actually has a number of great cartographic and rendering features that are
 1. At the bottom of the Layer Styling panel, look for the "Draw Effects" option and check it, then click  on the star that becomes active.
 2. Check  the option for Drop Shadow and adjust the settings to see what effect they have.
 
-![](./media/dropshadowdeaths-drop-shadow.png)
+![](./media/dropshadowdeaths-drop-shadow.png)  
+
+----
 
 ### Viewing the Attribute Table
 
@@ -242,6 +254,8 @@ Up to this point we've been mostly concerned with building a new map project. No
 
 1. Right-click on the **deathAddresses** layer in the **Layers** panel and select **Open Attribute Table**.
 2. Note that you can sort fields, scroll, select by attributes, etc...
+
+----
 
 ### *On Your Own Sidtrip: Statistics on a field*  
 
@@ -253,6 +267,8 @@ As mentioned, above, the **Num_Cases** field in the Death Addresses data indicat
 4. **Click Run** and **Close** 
 5. Look for the **Results Viewer** panel which should have been activated, and click on the **Hyperlink** to open the summary in a web browser.  
 ![](./media/resultsviewer-drop-shadow.png)   
+
+----
 
 # Creating spatial data
 
@@ -291,6 +307,8 @@ Now we will create a New Empty Shapefile, to hold the data that we will digitize
 4. Continue digitizing Until you have captured all 12 water pumps in the map.
 5. Right-click on the water_pumps layer and selelct **Toggle Editing** and save your edits when you are prompted.
 
+----
+
 ### On Your Own Sidetrip: Labels
 
 1. Click on the **water_pumps** layer to activate it in the **Layer Styling** panel
@@ -300,12 +318,18 @@ Now we will create a New Empty Shapefile, to hold the data that we will digitize
 5. Increase the **Text Size** to **14**
 6. Click on Buffer tab and enable the **Draw text buffer** option. 
 
-![](./media/labels.png)
+![](./media/labels.png)  
 
-# Exporting from QGIS 
+
+# Exporting from QGIS
 ## ...and Importing to Google Earth Engine
 
-When we added the the Death Addresses data, at the beginning of th eworkshop, we did so as a CSV. Google Earth Engine currently only supports uploads of shapefiles through the GUI, but allows upload of CSV and Shapefile through the API. Why would I ever 
+Google Earth Engine currently only supports uploads of shapefiles through the GUI, but allows upload of CSV and Shapefile through the API. We'll just cover using the GUI with a shapefile, here, but you can find documentation on the process of getting a CSV into Google Earth Engine, here: [https://developers.google.com/earth-engine/importing#upload-a-csv-file](https://developers.google.com/earth-engine/importing#upload-a-csv-file)
+
+## Export a Layer to Shapefile  
+
+When we added the the Death Addresses data, at the beginning of th eworkshop, we did so as a CSV. Here, we will export this data to a shapefile, compress it into a .zip file and 
+
 
 
 
