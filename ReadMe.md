@@ -1,8 +1,8 @@
-# QGIS 101
+# QGIS in 60 Minutes
 
-## Overview
+## Overview  
 
-This workshop aims to accomplish two things: Introduce participants to basic vocabulary, concepts and techniques for working with spatial data in research and introduce the interface and tools in QGIS, a free & open source desktop GIS software
+This workshop will introduce participants to QGIS, a free and open source desktop GIS application, comparable and competetive in many way with Esri's ArcGIS Desktop. We will focus on a very basic introduction to the QGIS interface, and common data carpentry tasks that will come in handy as you prepare and create vector data, in particular, for use in Google Earth Engine. 
 
 ## Setup
 
@@ -23,16 +23,13 @@ The data package for the workshop can be downloaded from [https://github.com/map
 The project data folder contains the following datasets:
 
 * **deathAddresses.csv**  - this is a table latitude and longitude coordinates for addresses affected by the cholera outbreak. This table also contains the number of deaths at each address.  
-* **snow_map.png.tif** - this is a non-georeferenced image of the map from John Snow's original report on the cholera outbreak of 1854. 
-* **Study_Area.shp** - This file is simply a rectangular feature that describes our area of interest.  
+* **John_Snow_Map.tif** - this is a georeferenced image of the map from John Snow's original report on the cholera outbreak of 1854. 
+* **Study_Area.shp,.dbf,.prj, etc...** - This is a shapefile, and is simply a rectangular feature that describes our area of interest.  *Note that a shapefile is not actually a file, but a set of files, most of which are critical to the proper function of the dataset. All of these files must remain adjacent, and with the same name, as the other components of the shapefile.* 
+* **Water_Pumps.geojson** - this is a spatial data file containing the locations of all of the water pumps recorded in John Snow's original map of the cholera outbreak. We'll actually create a version of this, ourselves, but I have included this, just in case. 
 
 
-#### Additional Files
-There is an extra backup data folder that contains versions of files that we will create during the workshop. These files are provided in case any of the steps can't be completed due to software errors or other problems. Welcome to working with open source.  
-* **Snow-cholera-map-1_modified** - this is a geo-referenced image of the map from John Snow's original report on the cholera outbreak of 1854.  
-* **Water_Pumps.geojson** - this is a spatial data file containing the locations of all of the water pumps recorded in John Snow's original map of the cholera outbreak.  Who woo hoo 
-
-## Getting started on a project  
+#Let's go!
+## Getting started on a project (10 minutes)
 
 In this section we will cover starting a new QGIS project. We will create a new map document, go over the basic QGIS interface, customize that interface, add a plug-in and bring a base map into your QGIS project.
 
@@ -40,7 +37,7 @@ In this section we will cover starting a new QGIS project. We will create a new 
 
 1. To create a new map document, simply open QGIS and save the resulting empty document to the top level of your project folder, naming your new document something meaningful like "SnowMap.qgz" or "Cholera_Map.qgz"
 
-Notice that when you save your map document a new folder in your data browser panel appears. This folder is called Project Hhome and is a shortcut to the folder containing your map document. It's always a good idea to save your map document to a high-level folder above your data and other project directories.
+*Notice that when you save your map document a new folder in your data browser panel appears. This folder is called Project Home and is a shortcut to the folder containing your map document. It's always a good idea to save your map document to a high-level folder above your data and other project directories.*
 
 ### Interface overview
 
@@ -69,7 +66,7 @@ The QGIS interface is made up of three basic components:
 
 ### Customize the interface
 
-When you first open QGIS, you might find the toolbars and panels that are neabled by default are more than your project calls for. Most panels and toolbars in the QGIS interface can be moved around by grabbing the title bar of panels, or the dotted handle on toolbars, and dragging them to the desired location in the interface. You can also use the View menu to turn panels and toobars on and off.
+When you first open QGIS, you might find the toolbars and panels that are enabled by default are more than your project calls for. Most panels and toolbars in the QGIS interface can be moved around by grabbing the title bar of panels, or the dotted handle on toolbars, and dragging them to the desired location in the interface. You can also use the View menu to turn panels and toobars on and off.
 
 ![](./media/customize.gif)
 
@@ -77,13 +74,13 @@ When you first open QGIS, you might find the toolbars and panels that are neable
 
 ![](./media/customize.png)
 
-### Add a plugin  
+### Add a plugin  (10min)
 The first thing we would like to do is add a base map layer to our map project. We will use the **Quick Map Services** plug-in to add a base map created by [Stamen design](https://stamen.com/). QGIS uses a plug-in model to extend the functionality of the basic software. Most plug-ins are contributed by members of the QGIS community and many extend functionality by adding interactivity with external services like geocoding, routing, and base map services.
 
 1. On the **Main menu** of **QGIS**, find the **Plug-ins** menu and open the **Manage and install plugins** dialogue.  
-2. In the search box at the top of the dialogue, search for the term "QuickMapServices"    
-3. The search should return a plug-in called "QuickMapServices." 
-4. Click on the QuickMapServices plug-in name and then click the install plug-in button
+2. In the search box at the top of the dialogue, search for the term "**QuickMapServices**"    
+3. The search should return a plug-in called "**QuickMapServices**." 
+4. Click on the **QuickMapServices** plug-in name and then click the install plug-in button
 5. Once the plug-in has successfully installed, Close the plug-in management dialog.
 
 ![](./media/pluginMenu.png)  
@@ -111,7 +108,7 @@ Now we're going to add an existing data layer. The data layer that we will add d
 
 ![](./media/studyareaadd.png)
 
-### Explore navigation tools
+### Explore navigation tools (5 minutes)
 
 Now we will explore the **basic navigation tools** in QGIS. These are the tools that you will 
 
@@ -139,7 +136,7 @@ working at a local level, but using one or more layers that are global in extent
 ![](media/image19.png)  The **Zoom to Selection** changes the Extent of your Map Canvas and zooms in or
 out to the selected feature.
 
-### Scale
+### *Explanation: A Sense of Scale*
 
 When zooming in or out, the **Scale Values** at the bottom page changes. Remember that the bigger the number (**1:60,000,000**), the larger the area being displayed. Although **60,000,000** is bigger than **60**, a scale **1:60,000,000** is a small scale and **1:60** is a large scale because the division of **1/60,000,000** is smaller than **1/60**.
 
@@ -151,7 +148,7 @@ When zooming in or out, the **Scale Values** at the bottom page changes. Remembe
 
 ![](./media/image25.png)  The **Refresh Button** will reload your Map Extent
 
-### Spatial Bookmarks
+### *On Your Own Sidetrip: Spatial Bookmarks*
 
 Often, we want to be able to move around in our data frame examining different parts of the map zooming in and out, and then returning to our primary area of interest. This can be easily accommodated through the use of spatial bookmarks. Here you'll create a spatial bookmark which allows us to quickly return to the area that we are interested in.
 
@@ -161,7 +158,7 @@ Often, we want to be able to move around in our data frame examining different p
 ![](./media/spatialbookmark.png)
 4. Click on the **Zoom Full** button to zoom to the world, then use the **Zoom to bookmark ** button to return to your Area of Interest.
 
-### Working with CRS
+## Working with CRS in QGIS (10min)
 Here we will examine the default **Coordinate Reference System**, which should currently be sent to **Web Mercator** and we will change it to **Universal Transverse Mercator** to match our study area layer.  
 
 #### Examine the CRS of a data layer
@@ -177,7 +174,7 @@ Here we will examine the default **Coordinate Reference System**, which should c
 
 ```EPSG:3857 WGS 84 Pseudo-Mercator```   
 
-*This is the projection of the basemap and is the default for the project because the basemap was the first layer that we added to the project.*  
+*This is the projection of the basemap and is the default for the project because the basemap was the first layer that we added to the project.* 
 
 ![](./media/projectcrs.png)
 
@@ -189,7 +186,9 @@ Here we will examine the default **Coordinate Reference System**, which should c
 
 You should now see that the base map and study area layer in the map canvas have rotated slightly and are now oriented north-south.
 
-### Create a data layer from an XY table?
+## Working with data in QGIS
+
+## Create a data layer from an XY table (10 Min)
 
 Often the data sets that you want to work with will not come as spatial data sets. In this step we will add a table of data that contains fields with the latitude and longitude coordinates of the deaths addresses we want to analyze.
 
@@ -209,7 +208,7 @@ Often the data sets that you want to work with will not come as spatial data set
 
 ![](./media/addedpoints-drop-shadow.png)
 
-### Layer symbology
+### *On Your Own Sidetrip: Layer symbology* 
 Proportional symbols on Death Addresses
 
 1. If not already, **click** on the **deathAddresses** layer to highlight it and focus the **Layer Styling panel** on this layer and use the following settings to adjust the **deathAddresses Symbology**: 
@@ -229,7 +228,8 @@ Because QGIS now features live update of symbology changes you should see these 
 
 ![](./media/deathsymbol-drop-shadow.png)
 
-#### Bonus: Adding Drop Shadows
+### *Bonus: Adding Drop Shadows*  
+QGIS actually has a number of great cartographic and rendering features that are, frankly, more advanced that most other desktop GIS packages. One of those is the ability to use "**Adobe Photoshop/Illustrator**" type rendering techniques. Here is my favorite, and a great way to make a map '**pop**' a little. 
 
 1. At the bottom of the Layer Styling panel, look for the "Draw Effects" option and check it, then click  on the star that becomes active.
 2. Check  the option for Drop Shadow and adjust the settings to see what effect they have.
@@ -243,7 +243,7 @@ Up to this point we've been mostly concerned with building a new map project. No
 1. Right-click on the **deathAddresses** layer in the **Layers** panel and select **Open Attribute Table**.
 2. Note that you can sort fields, scroll, select by attributes, etc...
 
-### Statistics on a field  
+### *On Your Own Sidtrip: Statistics on a field*  
 
 As mentioned, above, the **Num_Cases** field in the Death Addresses data indicates the number of deaths at each address in the dataset. You can get a simple statistical snapshot of the variable from the Attribute Table.
 
@@ -254,88 +254,20 @@ As mentioned, above, the **Num_Cases** field in the Death Addresses data indicat
 5. Look for the **Results Viewer** panel which should have been activated, and click on the **Hyperlink** to open the summary in a web browser.  
 ![](./media/resultsviewer-drop-shadow.png)   
 
-## Creating spatial data
+# Creating spatial data
 
-### Finding a map
+Perhaps one of the most useful features of QGIS is the ease with which you can convert spatial data, and create it from other reference layers (i.e. a georeferenced map like our John Snow cholera outbreak image). When working with historical data, you will often be working from scanned paper map resources. The techniques described, below, can as easily be used when working with satellite or aerial imagery. It's just a different reference layer. 
 
-There are many venues for searching for old maps as sources for spatial data and I've listed a few of our favorites, below. Of course, there are many considerations of scale, authority, projections, etc... when using a scanned map as a data source, it is possible to scan and georeference just about any map you can find reference data (another map to georeference to) for.
+## Make an Empty Shapefile  
 
-* [earthworks.stanford.edu](earthworks.stanford.edu)
-* [DavidRumsey.com](DavidRumsey.com)
-* [OldMapsOnline.com](OldMapsOnline.com)
+First, we need to add our reference layer, John Snow's map of the cholera outbreak of 1854:  
 
-### Finding an already georeferenced map
+1. In the Browser Window, right-click on the John_Snow_Map.tif and **Add Selected Layer to the Canvas**.  
 
-We'll start by looking at this map [[Gegend von London 1853](https://www.davidrumsey.com/luna/servlet/detail/RUMSEY~8~1~298861~90066747:Gegend-von-London-1853?sort=Pub_List_No_InitialSort%2CPub_Date%2CPub_List_No%2CSeries_No&qvq=w4s:/where%2FLondon%2B%252528England%252529%2Fwhen%2F1854;q:london%201854;sort:Pub_List_No_InitialSort%2CPub_Date%2CPub_List_No%2CSeries_No;lc:RUMSEY~8~1&mi=1&trs=2)] of London on [https://davidrumsey.com](https://davidrumsey.com). It already has a "**Georeferenced** version, which can be viewed by clicking on the **Georeferencer** button at the top of the page.
+Now we will create a New Empty Shapefile, to hold the data that we will digitize from the John Snow Map:
 
-![](./media/Gegend-drop-shadow.png)
-
-David Rumsey makes Open Geospatial Consortium (OGC) compliant services available for  georeferenced maps on his site. This means that you can use the maps directly in most modern GIS applications, including Arc GIS, QGIS, Arc  GIS Online, etc...
-
-### Adding a DavidRumsey.com map to QGIS
-
-Here is the **Web Map Tile Service WMTS URL** for the Gegend map:  
-
-```http
-https://maps.georeferencer.com/georeferences/435516159934/2019-02-19T17:27:12.514288Z/wmts?key=mpIMvCWIYHCcIzNaqUSo&SERVICE=WMTS&REQUEST=GetCapabilities
-```
- 
-This URL provides access to the georeferenced map outside of the DavidRumsey.com website.
-
-1. Select the WMTS URL, above, and copy it to your clipboard using right-click copy, or keyboard shortcuts, if you know them.  
-2. On the Main Menu **Layer>Add Layer>Add WMS/WMTS Layer** to open the **Data Source Manager**
-3. Click on the **New** button to open the **Create a New WMS/WMTS Connection** dialog:  
-
-| Setting | Value |
-|--------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name: | Gegend Map |
-| URL: | ```https://maps.georeferencer.com/georeferences/435516159934/2019-02-19T17:27:12.514288Z/wmts?key=mpIMvCWIYHCcIzNaqUSo&SERVICE=WMTS&REQUEST=GetCapabilities``` |   
-
-![](./media/createwmtsconnect.png)   
-
-4. Click OK to dismiss the dialog and save the connection  
-5. Click **Connect**  
-![](./media/connectwmts.png)    
-
-6. In the **Tilesets** tab, highlight the Gegend map WMTS layer item at the top and click **Add & Close** to close the dialog and return to the **QGIS Map Canvas**  
-7. **Right-click** on the **Gegend von London 1853** layer in the **Layer panel** and select **Zoom to layer**  
-8. Use the **Navigation Tools** to explore the map service at several different scales and extents.  
-
-![](./media/gegendWMTS-drop-shadow.png)
-
-### Georeference a map  
-
-Our goal in this workshop is to explore the cholera outbreak of 1854 and determine whether there is evidence that the Broad Street pump is the source of the outbreak. To do this we want to spatially allocate all of the death addresses in our data set to the water pump that they are nearest. Often the data that we need for our analysis doesn't exist in the format that we need it in. In this section we will use John Snow's original map of the 1854 cholera outbreak as a source for the locations of the water pumps in our analysis. 
-
-1. On the **Main Menu**, go to **Raster>Georeferencer** to open the **GDAL Georeferencer**
-2. Click on the **Open Raster** button  ![](./media/openraster.png) and browse to the **/data/** folder, select the **snow_map.png** and click **Open**
-3. You should be prompted to set the **Coordinate Reference System** of the map you are adding. Since the map we are georeferencing doesn't have one, use the **CRS** of the Map Document, instead, which is **EPSG:32630**, which is the CRS we want the map to end up in.  
-3. Use the Zoom tool to Zoom to the upper-right corner of the John Snow Map, around the SOHO Square
-4. Click on the Add Point tool ![](./media/addgcp.png) and click on the upper right corner of the outside boundary of SOHO Square, as shown below:  
-![](./media/addpointdialog-drop-shadow.png)  
-
-5. Click on the **From Map Canvas** button to switch back to the main QGIS Window
-6. Zoom to the same are of your Map Canvas, *preferably using your mouse wheel or keyboard shortcuts so you don't deactivate the Add Point tool, but you can always go back to the Georeferencer window and reactivate it* 
-7. Place **Ground Control Points** in each corner of the map, switching between the two windows using the **Add Point** tool, as needed. Add a final point somewhere near the center of the map.
-![](./media/georeferencer.png) 
- 
-8. Click on the **Transformation Settings** button ![](./media/transform.png) and examine the settings. The defaults should be fine, as follows:  
-
-| Setting | Value |
-|---------------------:|--------------------|
-| Transformation Type: | Polynomial 1 |
-| Resample Method: | Nearest Neighbor |
-| Target SRS: | EPSG:4326 - WGS 84 |  
-
-9. Click on the **Start Georeferencing** button ![](./media/starttransform.png) to start the georeferencing of your image and add it to the Map Canvas.
-10. Close the Georeferencer and click OK when prompted to save your **GCP** points.
-
-### Digitize features from a georeferenced map
-
-If the last section didn't go well, add the ```John_Snow_Map.tif``` from the **/backup_data/**  
-
-1. On the **Main Menu**, go to **Layer>Create Layer** and select the **New Shapefile** option
-2. Use the following settings:
+2. On the **Main Menu**, go to **Layer>Create Layer** and select the **New Shapefile** option
+3. Use the following settings:
 
 | Setting | Value |
 |-----------------------:|-----------------------------------|
@@ -350,16 +282,16 @@ If the last section didn't go well, add the ```John_Snow_Map.tif``` from the **/
 3. Add a New Field, add a **text  data** field called 'Label'
 4. Click OK to create the empty shapefile and add it as a layer.
 
-### Add points to your shapefile
+## Add points to your shapefile
 
 1. Right-click on the water_pumps layer and select **Toggle Editing**
 2. Click on the Add Point Feature button ![](./media/editpoint.png)and add a point for one of the Water Pumps in the John Snow map. 
-3. Label the point with the street it is on in the **Feature Attributes pop-up** and click ok to create the feature.
-![](./media/featureattributes.png)
+3. Label the point with the street it is on (really, just pick the nearest one you can read) in the **Feature Attributes pop-up** and click ok to create the feature.  
+![](./media/featureattributes.png)  
 4. Continue digitizing Until you have captured all 12 water pumps in the map.
 5. Right-click on the water_pumps layer and selelct **Toggle Editing** and save your edits when you are prompted.
 
-### Labels
+### On Your Own Sidetrip: Labels
 
 1. Click on the **water_pumps** layer to activate it in the **Layer Styling** panel
 2. Click on the **Label** tab of the **Layer Styling** panel
@@ -369,6 +301,17 @@ If the last section didn't go well, add the ```John_Snow_Map.tif``` from the **/
 6. Click on Buffer tab and enable the **Draw text buffer** option. 
 
 ![](./media/labels.png)
+
+# Exporting from QGIS 
+## ...and Importing to Google Earth Engine
+
+When we added the the Death Addresses data, at the beginning of th eworkshop, we did so as a CSV. Google Earth Engine currently only supports uploads of shapefiles through the GUI, but allows upload of CSV and Shapefile through the API. Why would I ever 
+
+
+
+----
+
+# Extra Credit: Time Permitting or On Your Own
 
 ## Basic spatial data analysis
 
@@ -387,7 +330,7 @@ Thiessen polygons allocate space in an area of interest to a single feature per 
 1.  On the **Select extent window,** scroll down to find **Study Area.**
 2.  **Click OK**
 3.  **Click the 3 dots** beside the Voronoi diagram option, and **select Save to file.**
-4.  Browse to the **EX_02_Snow_Map folder** and **save** the shapefile as **Voronoi.**
+4.  Browse to your Data folder and **save** the shapefile as **Voronoi.**
 5.  **Click Run**  
 ![](media/image005-drop-shadow.png)
 
@@ -515,82 +458,4 @@ Box.**
 >   distributed around the mean center; and the rectangle is the bounding box,
 >   describing the smallest possible rectangle which will still enclose all the
 >   points.
-
-### Creating a surface from Point Data to Highlight “Hotspots”
-
-![media/image14.png](media/image014-drop-shadow.png)
-
-#### Kernel Density
-
-The Kernel Density Tool calculates a magnitude per unit area from the point features using a kernel function to fit a smoothly tapered surface to each point. The result is a raster dataset which can reveal “hotspots” in the array of point data.
-
-1.  Go to the **Processing Toolbox Window** and **type** to search **Kernel Density Estimation (SAGA)** and **double click** to open the tool window.
-2.  **Select** the **Deaths_Allocated** layer as the **Points** features.
-3.  Select **Num_Cases** as the **Weight Field.**
-4.  Set the **Radius** option to **50** (this is in meters).
-5.  On the **Output Extent** option, click the 3 dots and select **Use
-    layer/canvas extent.**
-6.  On the resulting window search for **Study Area** and **Click OK.**
-![](media/image015-drop-shadow.png)
-
-Set the **Cellsize** to 10 (this is also in meters)
-
-1.  On the **Kernel Option click** the 3 dots and select **Save to File.**
-
-2.  **Save** the **Output Raster** to the **Data Folder** as **Kernel_Density.**
-
-3.  **Click Run** to run the Kernel Density tool.
-
-4.  **Right Click** the **Kernel_Density layer** and **open** its
-    **properties**.
-
-![](media/image016-drop-shadow.png)
-
-**Go** to the **Style Tab** and select
-
-1.  **Render Type:** Singleband gray
-
-    1.  **Color Gradient:** White to black
-
-    2.  **Contrast enhancement:** Stretch to MinMax.
-
-    3.  **Load min/max values:** Select min/max and click load.
-
-    4.  **Hue:** Check Colorize and select a color of your choice
-
-    5.  **Resampling:** Zoomed in **Bilinear.**
-
-    6.  **Click OK**
-
-![](media/image017-drop-shadow.png)
-
-## Creating a Basic Map Layout (in process)
-
-Toggle off uneeded layers & Arrange layers in order of visibility
-
-Change Project CRS to Basemap CRS
-
-Make Symbology & Label adjustments
-
-Rename Layers
-
-Switch to Layout Mode
-
-Add Map
-
-Add Legend
-
-Add Scale
-
-Add Neatline
-
-Add Text
-
-Print to PNG
-
-
-
-
-
-
 
