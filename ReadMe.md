@@ -328,7 +328,28 @@ Google Earth Engine currently only supports uploads of shapefiles through the GU
 
 ## Export a Layer to Shapefile  
 
-When we added the the Death Addresses data, at the beginning of th eworkshop, we did so as a CSV. Here, we will export this data to a shapefile, compress it into a .zip file and 
+When we added the the Death Addresses data, at the beginning of th eworkshop, we did so as a CSV. Here, we will export this data to a shapefile, compress it into a .zip file and use the Asset Panel in Google Earth Engine COde Editor to upload the data. 
+
+1. Right-click on the Death Addresses layer in the Layers Panel and select Export>Save Features As> and 
+| Setting | Value |
+|-----------------------:|-----------------------------------|
+| Format: | Esri Shapeile |
+| File name: | Save to: /data/deaths.shp |
+| CRS: | EPSG:4326 - WGS 84 |
+| Encoding | UTF-8 |
+| Geometry | Automatic |
+
+2. Click Export to finish and write the shapefile to your data folder.
+
+## Compress a Shapefile into a .Zip for upload to GEE
+
+As noted previously, a shapefile is not actually a file, but a colleciton of files, most of whic are necessary to the integraity of the spatial data recorded in the "shapefile." TO upload a shapfile, it is necessary to "package" it into a  single .zip file. 
+
+1. Browse to your /Data/ folder and locate the shapefile you saved there. If necessary, sort on the filename, so that all of the components of your shapefile are adjacent. 
+2. Select all of the files that make up your shapefile, using command-click, or control-click, depending upon your operating system.
+3. Right-click on the selected group of files and Sselect "Compress 6 files" if you are in MacOS, or XXXXX, if you are using Windows. This will create a .zip archive of your shapefile. 
+
+## Uploading Your Shapefile to Google Earth Engine
 
 
 
