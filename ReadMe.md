@@ -274,11 +274,13 @@ As mentioned, above, the **Num_Cases** field in the Death Addresses data indicat
 
 Perhaps one of the most useful features of QGIS is the ease with which you can convert spatial data, and create it from other reference layers (i.e. a georeferenced map like our John Snow cholera outbreak image). When working with historical data, you will often be working from scanned paper map resources. The techniques described, below, can as easily be used when working with satellite or aerial imagery. It's just a different reference layer. 
 
-## Make an Empty Shapefile  
+## Add Your Reference Layer (John_Snow_Map.tif)
 
 First, we need to add our reference layer, John Snow's map of the cholera outbreak of 1854:  
 
 1. In the Browser Window, right-click on the John_Snow_Map.tif and **Add Selected Layer to the Canvas**.  
+
+## Make an Empty Shapefile  
 
 Now we will create a New Empty Shapefile, to hold the data that we will digitize from the John Snow Map:
 
