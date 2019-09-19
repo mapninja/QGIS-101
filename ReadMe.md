@@ -357,6 +357,10 @@ As noted previously, a shapefile is not actually a file, but a colleciton of fil
 
 ## Export to KML
 
+## Add to EE
+
+```Map.addLayer(table, {}, 'Pumps');```
+
 
 ----
 
