@@ -359,7 +359,7 @@ As noted previously, a shapefile is not actually a file, but a colleciton of fil
 
 ## Add to EE
 
-```Map.addLayer(table, {}, 'Pumps');```
+```Map.addLayer(table, {color: 'blue'}, 'Pumps');```
 
 
 ----
