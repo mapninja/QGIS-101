@@ -345,15 +345,17 @@ When we added the the Death Addresses data, at the beginning of th eworkshop, we
 
 ## Compress a Shapefile into a .Zip for upload to GEE
 
-As noted previously, a shapefile is not actually a file, but a colleciton of files, most of whic are necessary to the integraity of the spatial data recorded in the "shapefile." TO upload a shapfile, it is necessary to "package" it into a  single .zip file. 
+As noted previously, a shapefile is not actually a file, but a colleciton of files, most of which are necessary to the integraity of the spatial data recorded in the "shapefile." To upload a shapfile, it is necessary to "package" it into a  single .zip file. 
 
 1. Browse to your /Data/ folder and locate the shapefile you saved there. If necessary, sort on the filename, so that all of the components of your shapefile are adjacent. 
 2. Select all of the files that make up your shapefile, using command-click, or control-click, depending upon your operating system.
 3. Right-click on the selected group of files and Sselect "Compress 6 files" if you are in MacOS, or XXXXX, if you are using Windows. This will create a .zip archive of your shapefile. 
 
-## Uploading Your Shapefile to Google Earth Engine
+## Upload Your Shapefile to Google Earth Engine
 
+## Export a GeoTiff with a new Coordinate Reference System
 
+## Export to KML
 
 
 ----
