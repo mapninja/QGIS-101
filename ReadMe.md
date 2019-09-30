@@ -1,8 +1,33 @@
 # QGIS 101
 
+
+Stacey Maples – Geospatial Manager – Stanford Geospatial Center – stacemaples@stanford.edu
+
+David Medeiros – GIS Instruction & Support Specialist - Stanford Geospatial Center - davidmed@stanford.edu
+
 ## Overview
 
-This workshop aims to accomplish two things: Introduce participants to basic vocabulary, concepts and techniques for working with spatial data in research and introduce the interface and tools in QGIS, a free & open source desktop GIS software
+This workshop aims to accomplish two things: Introduce participants to basic vocabulary, concepts and techniques for working with spatial data in research and introduce the interface and tools in QGIS, a free & open source desktop GIS software. This introductory session will focus upon the fundamental concepts and skills needed to begin using Geographic Information Systems software for the exploration and analysis of spatial data using the QGIS platform.  
+
+Topics will include:  
+
+* What is GIS?
+* Spatial Data Models and Formats
+* Projections and Coordinate Systems
+* Basic Data Management
+* The QGIS User Interface
+* Simple Analysis using Visualization.
+
+GIS Resources:
+Stanford Geospatial Center website - http://gis.stanford.edu/
+
+Stanford GIS Listserv - https://mailman.stanford.edu/mailman/listinfo/stanfordgis
+
+QGIS Current Version Download - 
+
+QGIS Current Version Help - https://qgis.org/en/docs/index.html
+
+Download Tutorial Data
 
 ## Setup
 
