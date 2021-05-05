@@ -607,27 +607,3 @@ Set the **Cellsize** to 10 (this is also in meters)
     6.  **Click OK**
 
 ![](media/image017-drop-shadow.png)
-
-## Creating a Basic Map Layout (in process)
-
-Toggle off uneeded layers & Arrange layers in order of visibility
-
-Change Project CRS to Basemap CRS
-
-Make Symbology & Label adjustments
-
-Rename Layers
-
-Switch to Layout Mode
-
-Add Map
-
-Add Legend
-
-Add Scale
-
-Add Neatline
-
-Add Text
-
-Print to PNG
