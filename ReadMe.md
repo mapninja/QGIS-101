@@ -18,12 +18,15 @@ Topics will include:
 * The QGIS User Interface
 * Simple Analysis using Visualization.
 
-GIS Resources:
+### GIS Resource links:  
+
 Stanford Geospatial Center website - http://gis.stanford.edu/
+
+Stafnrod Geospatial Center Slack - https://stanford-geospatial.slack.com
 
 Stanford GIS Listserv - https://mailman.stanford.edu/mailman/listinfo/stanfordgis
 
-QGIS Current Version Download - 
+QGIS Current Version Download - https://qgis.org
 
 QGIS Current Version Help - https://qgis.org/en/docs/index.html
 
@@ -48,14 +51,14 @@ The data package for the workshop can be downloaded from [https://github.com/map
 The project data folder contains the following datasets:
 
 * **deathAddresses.csv**  - this is a table latitude and longitude coordinates for addresses affected by the cholera outbreak. This table also contains the number of deaths at each address.  
-* **snow_map.png.tif** - this is a non-georeferenced image of the map from John Snow's original report on the cholera outbreak of 1854. 
+* **snow_map.png.tif** - this is a non-georeferenced image of the map from John Snow's original report on the cholera outbreak of 1854.
 * **Study_Area.shp** - This file is simply a rectangular feature that describes our area of interest.  
 
 
 #### Additional Files
 There is an extra backup data folder that contains versions of files that we will create during the workshop. These files are provided in case any of the steps can't be completed due to software errors or other problems. Welcome to working with open source.  
 * **Snow-cholera-map-1_modified** - this is a geo-referenced image of the map from John Snow's original report on the cholera outbreak of 1854.  
-* **Water_Pumps.geojson** - this is a spatial data file containing the locations of all of the water pumps recorded in John Snow's original map of the cholera outbreak.  Who woo hoo 
+* **Water_Pumps.geojson** - this is a spatial data file containing the locations of all of the water pumps recorded in John Snow's original map of the cholera outbreak.  Who woo hoo
 
 ## Getting started on a project  
 
@@ -107,7 +110,7 @@ The first thing we would like to do is add a base map layer to our map project. 
 
 1. On the **Main menu** of **QGIS**, find the **Plug-ins** menu and open the **Manage and install plugins** dialogue.  
 2. In the search box at the top of the dialogue, search for the term "QuickMapServices"    
-3. The search should return a plug-in called "QuickMapServices." 
+3. The search should return a plug-in called "QuickMapServices."
 4. Click on the QuickMapServices plug-in name and then click the install plug-in button
 5. Once the plug-in has successfully installed, Close the plug-in management dialog.
 
@@ -130,7 +133,7 @@ Now we're going to add an existing data layer. The data layer that we will add d
 
 1. In the **QGIS Browser panel**, find the data folder for this workshop (Hint: look for the "**Project Home**" folder) and double-click on the **study_area.shp** file, to add it to your **map project**.
 2. In the **Layers panel**, right-click on the **study_area layer** and select "**Zoom to layer**."
-3. On the **Main menu**, enable the **Layer styling panel** from the **View>Panels menu**. 
+3. On the **Main menu**, enable the **Layer styling panel** from the **View>Panels menu**.
 4. In the **Layer styling panel** select **Simple fill** from the panel at the top, and change the **Fill style** to "**No brush**." If you would like you can also change the **Stroke color** & **Stroke width** of the stroke to make it more visible against the black-and-white basemap.
 5. **Save** your **map document**.
 
@@ -138,7 +141,7 @@ Now we're going to add an existing data layer. The data layer that we will add d
 
 ### Explore navigation tools
 
-Now we will explore the **basic navigation tools** in QGIS. These are the tools that you will 
+Now we will explore the **basic navigation tools** in QGIS. These are the tools that you will
 
 The **Map Navigation Toolbar** provides the bulk of the tools for navigation in
 the **Map Canvas**. Most of them are fairly obvious. Take a moment to explore
@@ -237,7 +240,7 @@ Often the data sets that you want to work with will not come as spatial data set
 ### Layer symbology
 Proportional symbols on Death Addresses
 
-1. If not already, **click** on the **deathAddresses** layer to highlight it and focus the **Layer Styling panel** on this layer and use the following settings to adjust the **deathAddresses Symbology**: 
+1. If not already, **click** on the **deathAddresses** layer to highlight it and focus the **Layer Styling panel** on this layer and use the following settings to adjust the **deathAddresses Symbology**:
 
 | setting | value |
 |------------------:|--------------------------------|
@@ -275,7 +278,7 @@ As mentioned, above, the **Num_Cases** field in the Death Addresses data indicat
 1. Close the Attribute Table
 2. On the pull-down menu go to **Vector > Analysis Tools > Basic Statistics for Fields**
 3. On the window select **Death Addresses** as the Input Vector layer and **Num_Cases** as the Target field.
-4. **Click Run** and **Close** 
+4. **Click Run** and **Close**
 5. Look for the **Results Viewer** panel which should have been activated, and click on the **Hyperlink** to open the summary in a web browser.  
 ![](./media/resultsviewer-drop-shadow.png)   
 
@@ -304,7 +307,7 @@ Here is the **Web Map Tile Service WMTS URL** for the Gegend map:
 ```http
 https://maps.georeferencer.com/georeferences/435516159934/2019-02-19T17:27:12.514288Z/wmts?key=mpIMvCWIYHCcIzNaqUSo&SERVICE=WMTS&REQUEST=GetCapabilities
 ```
- 
+
 This URL provides access to the georeferenced map outside of the DavidRumsey.com website.
 
 1. Select the WMTS URL, above, and copy it to your clipboard using right-click copy, or keyboard shortcuts, if you know them.  
@@ -330,7 +333,7 @@ This URL provides access to the georeferenced map outside of the DavidRumsey.com
 
 ### Georeference a map  
 
-Our goal in this workshop is to explore the cholera outbreak of 1854 and determine whether there is evidence that the Broad Street pump is the source of the outbreak. To do this we want to spatially allocate all of the death addresses in our data set to the water pump that they are nearest. Often the data that we need for our analysis doesn't exist in the format that we need it in. In this section we will use John Snow's original map of the 1854 cholera outbreak as a source for the locations of the water pumps in our analysis. 
+Our goal in this workshop is to explore the cholera outbreak of 1854 and determine whether there is evidence that the Broad Street pump is the source of the outbreak. To do this we want to spatially allocate all of the death addresses in our data set to the water pump that they are nearest. Often the data that we need for our analysis doesn't exist in the format that we need it in. In this section we will use John Snow's original map of the 1854 cholera outbreak as a source for the locations of the water pumps in our analysis.
 
 1. On the **Main Menu**, go to **Raster>Georeferencer** to open the **GDAL Georeferencer**
 2. Click on the **Open Raster** button  ![](./media/openraster.png) and browse to the **/data/** folder, select the **snow_map.png** and click **Open**
@@ -340,10 +343,10 @@ Our goal in this workshop is to explore the cholera outbreak of 1854 and determi
 ![](./media/addpointdialog-drop-shadow.png)  
 
 5. Click on the **From Map Canvas** button to switch back to the main QGIS Window
-6. Zoom to the same are of your Map Canvas, *preferably using your mouse wheel or keyboard shortcuts so you don't deactivate the Add Point tool, but you can always go back to the Georeferencer window and reactivate it* 
+6. Zoom to the same are of your Map Canvas, *preferably using your mouse wheel or keyboard shortcuts so you don't deactivate the Add Point tool, but you can always go back to the Georeferencer window and reactivate it*
 7. Place **Ground Control Points** in each corner of the map, switching between the two windows using the **Add Point** tool, as needed. Add a final point somewhere near the center of the map.
-![](./media/georeferencer.png) 
- 
+![](./media/georeferencer.png)
+
 8. Click on the **Transformation Settings** button ![](./media/transform.png) and examine the settings. The defaults should be fine, as follows:  
 
 | Setting | Value |
@@ -378,7 +381,7 @@ If the last section didn't go well, add the ```John_Snow_Map.tif``` from the **/
 ### Add points to your shapefile
 
 1. Right-click on the water_pumps layer and select **Toggle Editing**
-2. Click on the Add Point Feature button ![](./media/editpoint.png)and add a point for one of the Water Pumps in the John Snow map. 
+2. Click on the Add Point Feature button ![](./media/editpoint.png)and add a point for one of the Water Pumps in the John Snow map.
 3. Label the point with the street it is on in the **Feature Attributes pop-up** and click ok to create the feature.
 ![](./media/featureattributes.png)
 4. Continue digitizing Until you have captured all 12 water pumps in the map.
@@ -391,7 +394,7 @@ If the last section didn't go well, add the ```John_Snow_Map.tif``` from the **/
 3. Change the Label option to **Single labels**
 4. Set **Label with:** to the 'label' field.
 5. Increase the **Text Size** to **14**
-6. Click on Buffer tab and enable the **Draw text buffer** option. 
+6. Click on Buffer tab and enable the **Draw text buffer** option.
 
 ![](./media/labels.png)
 
@@ -462,9 +465,9 @@ After the installation a **GroupStats Tool** ![](media/image008.png) appears on 
 2. **Select Deaths_Allocated** as Layer.  
 ![](media/image009-drop-shadow.png)
 
-Drag from **Fields** to **Column**: average, count and sum. 
+Drag from **Fields** to **Column**: average, count and sum.
 
-On **Rows,** drag Name (originally from the Water_Pump data layer), and 
+On **Rows,** drag Name (originally from the Water_Pump data layer), and
 
 on **Value** drag **Num_Cases.**
 
@@ -486,7 +489,7 @@ and **Average** (Mean Deaths per Household).
 
 The Mean Center is the average x- and y-coordinate of all the features in the study area. It's useful for tracking changes in the distribution or for comparing the distributions of different types of features. Here, we will use the Mean Center to highlight the distribution of deaths around the Broad Street Pump.  
 
-First, we will calculate a simple spatial mean. This is simply the mean center of the **distribution of locations** 
+First, we will calculate a simple spatial mean. This is simply the mean center of the **distribution of locations**
 
 1. On the pull-down menu go to menu go to **Vector \> Analysis \> Mean
 coordinate(s)**  
@@ -612,10 +615,3 @@ Add Neatline
 Add Text
 
 Print to PNG
-
-
-
-
-
-
-
