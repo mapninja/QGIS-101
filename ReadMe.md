@@ -38,7 +38,7 @@ Users should prepare for this workshop by installing the QGIS software appropria
 
 ### Software
 
-This workshop was created using QGIS version 3.4, which is the long-term release. If you are in new user we suggest installing the latest long-term release for your operating system. While the latest beta release contains extra features and functionality, it often and also contains bugs and limited functionality, which can be frustrating to new users.
+This workshop was created using QGIS version 3.12, which is the long-term release. If you are in new user we suggest installing the latest long-term release for your operating system. While the latest beta release contains extra features and functionality, it often and also contains bugs and limited functionality, which can be frustrating to new users.
 
 To download QGIS for your operating system go to QGIS.org and click on the download link.
 
@@ -108,7 +108,7 @@ A number of  toolbars are enabled, by default, in a new installation  of QGIS. B
 
 ### Customize the interface
 
-When you first open QGIS, you might find the toolbars and panels that are neabled by default are more than your project calls for. Most panels and toolbars in the QGIS interface can be moved around by grabbing the title bar of panels, or the dotted handle on toolbars, and dragging them to the desired location in the interface. You can also use the View menu to turn panels and toobars on and off.
+When you first open QGIS, you might find the toolbars and panels that are enabled by default are more than your project calls for. Most panels and toolbars in the QGIS interface can be moved around by grabbing the title bar of panels, or the dotted handle on toolbars, and dragging them to the desired location in the interface. You can also use the View menu to turn panels and toobars on and off, as well as using a right-click anywhere in the toolbar area, to activate the context menu.
 
 ![](./media/customize.gif)
 
@@ -119,7 +119,7 @@ When you first open QGIS, you might find the toolbars and panels that are neable
 ### Add a plugin  
 The first thing we would like to do is add a base map layer to our map project. We will use the **Quick Map Services** plug-in to add a base map created by [Stamen design](https://stamen.com/). QGIS uses a plug-in model to extend the functionality of the basic software. Most plug-ins are contributed by members of the QGIS community and many extend functionality by adding interactivity with external services like geocoding, routing, and base map services.
 
-1. On the **Main menu** of **QGIS**, find the **Plug-ins** menu and open the **Manage and install plugins** dialogue.  
+1. On the **Main menu** of **QGIS**, find the **Plugins** menu and open the **Manage and install plugins** dialogue.  
 2. In the search box at the top of the dialogue, search for the term "QuickMapServices"    
 3. The search should return a plug-in called "QuickMapServices."
 4. Click on the QuickMapServices plug-in name and then click the install plug-in button
@@ -145,7 +145,7 @@ Now we're going to add an existing data layer. The data layer that we will add d
 1. In the **QGIS Browser panel**, find the data folder for this workshop (Hint: look for the "**Project Home**" folder) and double-click on the **study_area.shp** file, to add it to your **map project**.
 2. In the **Layers panel**, right-click on the **study_area layer** and select "**Zoom to layer**."
 3. On the **Main menu**, enable the **Layer styling panel** from the **View>Panels menu**.
-4. In the **Layer styling panel** select **Simple fill** from the panel at the top, and change the **Fill style** to "**No brush**." If you would like you can also change the **Stroke color** & **Stroke width** of the stroke to make it more visible against the black-and-white basemap.
+4. In the **Layer styling panel**: select **Simple fill** from the panel at the top, and change the **Fill style** to "**No brush**." If you would like you can also change the **Stroke color** & **Stroke width** of the stroke to make it more visible against the black-and-white basemap.
 5. **Save** your **map document**.
 
 ![](./media/studyareaadd.png)
@@ -154,12 +154,7 @@ Now we're going to add an existing data layer. The data layer that we will add d
 
 Now we will explore the **basic navigation tools** in QGIS. These are the tools that you will
 
-The **Map Navigation Toolbar** provides the bulk of the tools for navigation in
-the **Map Canvas**. Most of them are fairly obvious. Take a moment to explore
-each of these tools, and how it works.
-
-![](./media/image13.png)  The **Touch Zoom and Pan** - Works if you have a notebook with touch screen.
-Zoom in and zoom out using double finger touch.
+The **Map Navigation Toolbar** provides the bulk of the tools for navigation in the **Map Canvas**. Most of them are fairly obvious. Take a moment to explore each of these most popular tools:
 
 ![](./media/image14.png)  The **Pan Map** changes the Extent of Map Canvas, without changing the scale.
 Click on the Pan Tool and use it to move around the Map Canvas.
@@ -180,7 +175,7 @@ out to the selected feature.
 
 ### Scale
 
-When zooming in or out, the **Scale Values** at the bottom page changes. Remember that the bigger the number (**1:60,000,000**), the larger the area being displayed. Although **60,000,000** is bigger than **60**, a scale **1:60,000,000** is a small scale and **1:60** is a large scale because the division of **1/60,000,000** is smaller than **1/60**.
+When zooming in or out, the **Scale Values** at the bottom of the page changes. Remember that the bigger the number (**1:60,000,000**), the larger the area being displayed. Although **60,000,000** is bigger than **60**, a scale **1:60,000,000** is a small scale and **1:60** is a large scale because the division of **1/60,000,000** is smaller than **1/60**. This difference is easy to remember when you consider that features in a large scale map are shown very large!
 
 ![](./media/image20-drop-shadow.png)
 
