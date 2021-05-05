@@ -30,7 +30,9 @@ QGIS Current Version Download - https://qgis.org
 
 QGIS Current Version Help - https://qgis.org/en/docs/index.html
 
-Download Tutorial Data
+This tutorial on GIthub Pages - https://mapninja.github.io/QGIS-101/
+
+
 
 ## Setup
 
