@@ -1,4 +1,5 @@
 # QGIS 101
+https://mapninja.github.io/QGIS-101/
 
 
 Stacey Maples – Geospatial Manager – Stanford Geospatial Center – stacemaples@stanford.edu
