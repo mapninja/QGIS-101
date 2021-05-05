@@ -68,7 +68,7 @@ In this section we will cover starting a new QGIS project. We will create a new 
 
 1. To create a new map document, simply open QGIS and save the resulting empty document to the top level of your project folder, naming your new document something meaningful like "SnowMap.qgz" or "Cholera_Map.qgz"
 
-Notice that when you save your map document a new folder in your data browser panel appears. This folder is called Project Hhome and is a shortcut to the folder containing your map document. It's always a good idea to save your map document to a high-level folder above your data and other project directories.
+Notice that when you save your map document a new folder in your data browser panel appears. This folder is called **Project Home** and is a shortcut to the folder containing your map document. It's always a good idea to save your map document to a high-level folder above your data and other project directories.
 
 ### Interface overview
 
@@ -86,14 +86,25 @@ The QGIS interface is made up of three basic components:
 * **The Layers Window** – This is where your added geographic and non-geographic datasets will show. This is similar to the Table of Contents in ArcMap.
 * **Other Panels** - there are many other panels that it is possible to enable in the QGIS interface. We will be making use of the **Processing Toolbox** and **Layer Styling** panel for this workshop.
 
-**General Toolbars:**
-
-* **File Bar** – Has the basic commands of any file: New, Open, Save, Save As. The New Print Composer and Composer Manager are to create and manage layout views.
+**Toolbars:**
+A number of  toolbars are enabled, by default, in a new installation  of QGIS. Below are the most commonly used, though not all of the defaults.
+* **Project** – Has the basic commands of any file: New, Open, Save, Save As. The New Print Composer and Composer Manager are to create and manage layout views.
+![](images/ReadMe-6810db2c.png)
 * **Map Navigation** – Allows the user to Pan, Zoom to a Selected Feature, Zoom In, Zoom Out, Zoom to previous/next extent, and Refresh.
+![](images/ReadMe-585c24b9.png)
 * **Attributes** – These tools allow the user to: Identify attributes, Select / Deselect features, Opens attribute table, measure distance/areas/angles, create spatial bookmarks.
-* **Plugins** – QGIS comes with two default plugins: Python Console and QGis 2 Leaflet Webmap.
+![](images/ReadMe-f10f6c32.png)
+* **Data Source Manager** – This bar is to add layers (vector, raster, new shapefile layer)
+![](images/ReadMe-644f8ba0.png)
+*  **Editing** - (Shown with editing toggled ON) Used for creating, altering and deleting features. Remains disabled, outside of an Edit Session.  
+![](images/ReadMe-5eaeebc5.png)  
+* **Selection** -  Allows you to Select/Deselect features interactively, by attribute value, or by locations.  
+![](images/ReadMe-01c70046.png)
+* **Plugins** – QGIS comes with one default plugin enabled: Python Console.
+![](images/ReadMe-30fe2ebe.png)
 * **Help** – The question mark booklet is linked to the QGIS User Guide.
-* **Manage Layers** – This bar is to add layers (vector, raster, new shapefile layer)
+![](images/ReadMe-c2e20be1.png)
+
 
 ### Customize the interface
 
