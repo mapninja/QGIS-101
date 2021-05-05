@@ -387,7 +387,7 @@ _Note:If the last section didn't go well, add the ```John_Snow_Map.tif``` from t
 
 ### Add points to your shapefile
 
-Now we will begin adding features to our empty shapefile, as well as recording an attribute for each feature (the Label). TO do this, we will need to "open the shapefile for editing" then save our edits, periodically.
+Now we will begin adding features to our empty shapefile, as well as recording an attribute for each feature (the Label). To do this, we will need to "open the shapefile for editing" then save our edits, periodically.
 
 1. Right-click on the **water_pumps layer** and select **Toggle Editing**
 2. Click on the Add Point Feature button ![](./media/editpoint.png)and add a point for one of the Water Pumps in the John Snow map.
@@ -402,14 +402,17 @@ Your map should have a collection of 13 points like the image,  below:
 
 ### Labels
 
-1. Click on the **water_pumps** layer to activate it in the **Layer Styling** panel
-2. Click on the **Label** tab of the **Layer Styling** panel
-3. Change the Label option to **Single labels**
-4. Set **Label with:** to the 'label' field.
-5. Increase the **Text Size** to **14**
-6. Click on Buffer tab and enable the **Draw text buffer** option.
+1. Open the Layer Styling Panel, if it is not already
+2. Click on the **water_pumps** layer to activate it in the **Layer Styling** panel
+3. Click on the **Label** tab ![](images/ReadMe-b6c4286c.png) of the **Layer Styling** panel
+4. Change the Label option to **Single labels**
+5. Set **Label with:** to the 'label' field.
+6. Increase the **Text Size** to **14**
+7. Click on Buffer tab and enable the **Draw text buffer** option
 
 ![](./media/labels.png)
+
+![](images/ReadMe-e68895da.png)
 
 ## Basic spatial data analysis
 
