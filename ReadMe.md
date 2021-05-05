@@ -152,8 +152,6 @@ Now we're going to add an existing data layer. The data layer that we will add d
 
 ### Explore navigation tools
 
-Now we will explore the **basic navigation tools** in QGIS. These are the tools that you will
-
 The **Map Navigation Toolbar** provides the bulk of the tools for navigation in the **Map Canvas**. Most of them are fairly obvious. Take a moment to explore each of these most popular tools:
 
 ![](./media/image14.png)  The **Pan Map** changes the Extent of Map Canvas, without changing the scale.
@@ -173,17 +171,18 @@ working at a local level, but using one or more layers that are global in extent
 ![](media/image19.png)  The **Zoom to Selection** changes the Extent of your Map Canvas and zooms in or
 out to the selected feature.
 
+![](./media/image22.png)  The **Zoom to Layer** to a specific layer extent.
+
+![](./media/image23.png)  The **Zoom Last** and ![](./media/image24.png) **Zoom Next** works as a Redo or Undo tool **ONLY** for the Scale/Extent in your Map Canvas. This tool is particularly useful if you change your Map Extent inadvertently.
+
+![](./media/image25.png)  The **Refresh Button** will reload your Map Extent
+
 ### Scale
 
 When zooming in or out, the **Scale Values** at the bottom of the page changes. Remember that the bigger the number (**1:60,000,000**), the larger the area being displayed. Although **60,000,000** is bigger than **60**, a scale **1:60,000,000** is a small scale and **1:60** is a large scale because the division of **1/60,000,000** is smaller than **1/60**. This difference is easy to remember when you consider that features in a large scale map are shown very large!
 
 ![](./media/image20-drop-shadow.png)
 
-![](./media/image22.png)  The **Zoom to Layer** to a specific layer extent.
-
-![](./media/image23.png)  The **Zoom Last** and ![](./media/image24.png) **Zoom Next** works as a Redo or Undo tool **ONLY** for the Scale/Extent in your Map Canvas. This tool is particularly useful if you change your Map Extent inadvertently.
-
-![](./media/image25.png)  The **Refresh Button** will reload your Map Extent
 
 ### Spatial Bookmarks
 
@@ -206,7 +205,7 @@ Here we will examine the default **Coordinate Reference System**, which should c
 
 ![](./media/layercrs.png)
 3. Click OK to close the **Layer Properties** Dialog  
-4. On the **Main Menu** Open the **Project Properties** from the **Project** menu.  
+4. On the **Main Menu** Open the **Project>Project Properties**  
 5. Click on the **CRS** tab at the left and note that the project is in a projection called:  
 
 ```EPSG:3857 WGS 84 Pseudo-Mercator```   
@@ -221,15 +220,15 @@ Here we will examine the default **Coordinate Reference System**, which should c
 2. Click on the ```EPSG:32630 WGS 84 / UTM zone 30N``` and then click OK to change the CRS of the Project to the same as the layer **Study_Area**.
 3. Save your changes by clicking on the Save button ![](./media/savebutton.png) on the Project toolbar.  
 
-You should now see that the base map and study area layer in the map canvas have rotated slightly and are now oriented north-south.
+You should now see that the study area layer in the map canvas has rotated slightly and is now oriented north-south.
 
 ### Create a data layer from an XY table?
 
 Often the data sets that you want to work with will not come as spatial data sets. In this step we will add a table of data that contains fields with the latitude and longitude coordinates of the deaths addresses we want to analyze.
 
-1. Click on the **Add Delimited Text Layer** button ![](./media/delimitedlayer.png)to open the Data Source Manager dialog.
+1. Click on the **Data Source Manager** button ![](images/ReadMe-d41c0b7e.png) to open the Data Source Manager dialog.
 2. For **File Name**, browse to the **data** folder and select the **deathAddresses.csv**
-3. Set the remainder of the settings as follows, and click **Add & Close** to import the layer:    
+3. Click on the Delimited Text tab ![](images/ReadMe-7d3a93bd.png), and set the remainder of the settings as follows, and click **Add & Close** to import the layer:    
 
 | setting | value |
 |--------------------------:|--------------------------------------------------------------------|
@@ -341,34 +340,36 @@ This URL provides access to the georeferenced map outside of the DavidRumsey.com
 
 Our goal in this workshop is to explore the cholera outbreak of 1854 and determine whether there is evidence that the Broad Street pump is the source of the outbreak. To do this we want to spatially allocate all of the death addresses in our data set to the water pump that they are nearest. Often the data that we need for our analysis doesn't exist in the format that we need it in. In this section we will use John Snow's original map of the 1854 cholera outbreak as a source for the locations of the water pumps in our analysis.
 
+#### Setting up  
+
 1. On the **Main Menu**, go to **Raster>Georeferencer** to open the **GDAL Georeferencer**
 2. Click on the **Open Raster** button  ![](./media/openraster.png) and browse to the **/data/** folder, select the **snow_map.png** and click **Open**
-3. You should be prompted to set the **Coordinate Reference System** of the map you are adding. Since the map we are georeferencing doesn't have one, use the **CRS** of the Map Document, instead, which is **EPSG:32630**, which is the CRS we want the map to end up in.  
-3. Use the Zoom tool to Zoom to the upper-right corner of the John Snow Map, around the SOHO Square
-4. Click on the Add Point tool ![](./media/addgcp.png) and click on the upper right corner of the outside boundary of SOHO Square, as shown below:  
+3. Click on the  settings button ![](images/ReadMe-df72e662.png)  
+4. Set the **Transformation Type**: "Polynomial 1"; **Resampling Method**:"Nearest Neighbor"; **Target SRS**: "Project CRS:EPSG:32630..."
+5. Check the option to "**Save GCP points**" and "**Load in QGIS when done**"
+6. Click OK to save the settings
+
+#### Adding Ground Control Points
+
+7. Use the Zoom tool to Zoom to the upper-right corner of the John Snow Map, around the SOHO Square
+8. Click on the Add Point tool ![](./media/addgcp.png) and click on the upper right corner of the outside boundary of SOHO Square, as shown below:  
 ![](./media/addpointdialog-drop-shadow.png)  
 
-5. Click on the **From Map Canvas** button to switch back to the main QGIS Window
-6. Zoom to the same are of your Map Canvas, *preferably using your mouse wheel or keyboard shortcuts so you don't deactivate the Add Point tool, but you can always go back to the Georeferencer window and reactivate it*
+9. Click on the **From Map Canvas** button to switch back to the main QGIS Window
+10. Zoom to the same area of your Map Canvas, *preferably using your mouse wheel or keyboard shortcuts so you don't deactivate the Add Point tool, but you can always go back to the Georeferencer window and reactivate it*
 7. Place **Ground Control Points** in each corner of the map, switching between the two windows using the **Add Point** tool, as needed. Add a final point somewhere near the center of the map.
 ![](./media/georeferencer.png)
 
-8. Click on the **Transformation Settings** button ![](./media/transform.png) and examine the settings. The defaults should be fine, as follows:  
-
-| Setting | Value |
-|---------------------:|--------------------|
-| Transformation Type: | Polynomial 1 |
-| Resample Method: | Nearest Neighbor |
-| Target SRS: | EPSG:4326 - WGS 84 |  
-
 9. Click on the **Start Georeferencing** button ![](./media/starttransform.png) to start the georeferencing of your image and add it to the Map Canvas.
-10. Close the Georeferencer and click OK when prompted to save your **GCP** points.
+10. Close the Georeferencer and click OK if prompted to save your **GCP** points.
 
 ### Digitize features from a georeferenced map
 
-If the last section didn't go well, add the ```John_Snow_Map.tif``` from the **/backup_data/**  
+Often, the reason we want to add a georeferenced map to our GIS layout is to digitize data from that map source. Here we will walk through the basic steps of preparing an empty dataset and digitizing features into it.
 
-1. On the **Main Menu**, go to **Layer>Create Layer** and select the **New Shapefile** option
+_Note:If the last section didn't go well, add the ```John_Snow_Map.tif``` from the **/backup_data/**_
+
+1. On the **Main Menu**, go to **Layer>Create Layer** and select the **New Shapefile Layer...** option
 2. Use the following settings:
 
 | Setting | Value |
@@ -386,12 +387,18 @@ If the last section didn't go well, add the ```John_Snow_Map.tif``` from the **/
 
 ### Add points to your shapefile
 
-1. Right-click on the water_pumps layer and select **Toggle Editing**
+Now we will begin adding features to our empty shapefile, as well as recording an attribute for each feature (the Label). TO do this, we will need to "open the shapefile for editing" then save our edits, periodically.
+
+1. Right-click on the **water_pumps layer** and select **Toggle Editing**
 2. Click on the Add Point Feature button ![](./media/editpoint.png)and add a point for one of the Water Pumps in the John Snow map.
 3. Label the point with the street it is on in the **Feature Attributes pop-up** and click ok to create the feature.
 ![](./media/featureattributes.png)
-4. Continue digitizing Until you have captured all 12 water pumps in the map.
-5. Right-click on the water_pumps layer and selelct **Toggle Editing** and save your edits when you are prompted.
+4. Continue digitizing Until you have captured all 13 water pumps in the map.
+5. Right-click on the water_pumps layer and select **Toggle Editing**, saving your edits when you are prompted.
+
+Your map should have a collection of 13 points like the image,  below:
+
+![](images/ReadMe-90b7e76d.png)
 
 ### Labels
 
