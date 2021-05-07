@@ -23,7 +23,7 @@ Topics will include:
 
 Stanford Geospatial Center website - http://gis.stanford.edu/
 
-Stafnrod Geospatial Center Slack - https://stanford-geospatial.slack.com
+Stanford Geospatial Center Slack - https://stanford-geospatial.slack.com
 
 Stanford GIS Listserv - https://mailman.stanford.edu/mailman/listinfo/stanfordgis
 
