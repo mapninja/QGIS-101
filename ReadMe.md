@@ -37,6 +37,8 @@ Introductory Slides: https://slides.com/staceymaples/gisintro-1/
 
 LIVE Intro Slides: https://slides.com/staceymaples/gisintro-1/live
 
+Steven Johnson's "Ghost Map" TED Talk - https://www.ted.com/talks/steven_johnson_how_the_ghost_map_helped_end_a_killer_disease
+
 ## Setup
 
 Users should prepare for this workshop by installing the QGIS software appropriate for their operating system and downloading the data to their local hard drive.
