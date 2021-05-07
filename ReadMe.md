@@ -416,6 +416,21 @@ Your map should have a collection of 13 points like the image,  below:
 ![](./media/labels.png)
 
 ![](images/ReadMe-e68895da.png)
+### Projecting data
+Here, we will export our data to projected coordinate system of our project. Often, our data layers will need to be in the  projection  for many of the Processing Tools (in most Desktop GIS  systems, in fact) to  work properly. We'll use the same UTM coordiante system as our Study_Area.shp layer, for this  reason,  but also  because, in  general,it is far easier to measure and interpret the results of geometric operations  (area, length, perimeter, etc...).
+
+1. Right-click on the water_pumps layer and select **Export>Save Features As...**
+2. Save the layer as a Shapefile, named something like water_pump_projected.shp  and  use the CRS drop-down  to select the `Project CRS: EPSG32630 - WGS 84 / UTM zne 30N` as the Coordinate Reference System to project to, as the data is exported.
+3. All other settings should be fine as defaults, so clik OK to export the new layer, which should be added to your Layers panel.
+
+### Copying Symbologies
+One of my favorite QGIS features is the ability to quickly copy and paste symology settings from one layer to another. Here we will quickly transfer the symbology we created for our original Water Pumps layer to our new projected  version.
+
+1. Right click on the original **water_pumps layer** and select **Styles>Copy Styles> All Style Categories** (note that you can also be  selective about  what you copy!).
+2. Right-click on the new water_pumps_projected layer and select **Styles>Paste Styles> All Style Categories**
+3. Right-click on  your original water_pumps layer and select **Remove Layer**
+
+You should now be left with an exact copy of your original water pummps layer, but with an appropriate projection for the next few steps of this  project.
 
 ## Basic spatial data analysis
 
@@ -425,20 +440,19 @@ Thiessen polygons allocate space in an area of interest to a single feature per 
 
 1. On the Main Menu go to menu go to **Processing \> Toolbox**
 2. Go to the **Processing Toolbox Window** and change the view from **Simplified Interface** to **Advanced Interface.**
-3. Search for **Voronoi.**
-4. **Double–click** the **Voronoi polygons** tool under **Grass commands.**
-5. On the v.voronoi tool window input the select **Water Pumps** as the **Input points layer.**  
-![](media/image004-drop-shadow.png)
+3. Search for **Voronoi**
+4. **Double–click** the **Voronoi polygons** tool
+5. On the Voronoi tool select **water_pumps_projected** as the **Input layer.**  
+![](images/ReadMe-f195b5a1.png)
 
-6. On **Grass region, click the 3 dots** and select **Use layer/canvas extent.**
-1.  On the **Select extent window,** scroll down to find **Study Area.**
-2.  **Click OK**
-3.  **Click the 3 dots** beside the Voronoi diagram option, and **select Save to file.**
-4.  Browse to the **EX_02_Snow_Map folder** and **save** the shapefile as **Voronoi.**
-5.  **Click Run**  
-![](media/image005-drop-shadow.png)
+6. Set the **Buffer region** to **50%**
+7. Browse and save teh  Voronoi polygons output as voronoi.geojson, changing the filetype to **GEOJSON files (*.geojson)** in the Save File dialog:
+![](images/ReadMe-d0e49a89.png)
 
-6. **Open** the Attribute Table of the **Voronoi** layer to explore how each Voronoi Polygon has the name of the pump enclosed.
+6. Click Run to create the voronoi polygon layer.
+7. Drag the resulting layer below your water_pump_projected layer and adjust the symbology to be an outline, only, as shown.
+
+![](images/ReadMe-66930acc.png)
 
 ### Spatial Join (Point Aggregation)
 
@@ -451,13 +465,11 @@ Now that you have created the Voronoi polygon layer, you will “allocate” eac
 1.  Select **Death Addresses** as the Target vector layer and
     **Water_Pump_Voronoi** as the Join vector layer.
 
-2.  **Click Browse** to save the **Output GeoJSON** as **Deaths_Allocated** in
-    your **Data** Folder.
+2.  **Click Browse** to save the output as a **Shapefile** and name it something like **Deaths_Allocated** in your **Data** Folder.
 
 3.  **Click OK**
 
-4.  Click **Yes** to add the new layer to the TOC (Table of Contents) and Close
-    the Join the attributes by location window.
+4.  Close the Join the attributes by location window.
 
 5.  The resulting layer is added to the Map Canvas. **Open** its **attribute table** to confirm that the attributes of the Water Pumps have been transferred:  
 ![](media/joinedTable.png)
@@ -533,7 +545,7 @@ Set the "Unique ID" option to the "label" field and observe the results. This ha
 
 ### Standard Distance
 
-The Standrad Distance is the spatial statistics equivalent of the standard deviation. It describes the radius around the spatial mean (or weighted spatial mean), which contains 68% of locations in your dataset. It can be very useful for working with GPS data.
+The Standard Distance is the spatial statistics equivalent of the standard deviation. It describes the radius around the spatial mean (or weighted spatial mean), which contains 68% of locations in your dataset. It can be very useful for working with GPS data.
 
 ![](media/image011-drop-shadow.png)
 
@@ -567,9 +579,11 @@ Box.**
 
 ![media/image14.png](media/image014-drop-shadow.png)
 
-#### Kernel Density
+#### Kernel Density (Currently problematic)
 
 The Kernel Density Tool calculates a magnitude per unit area from the point features using a kernel function to fit a smoothly tapered surface to each point. The result is a raster dataset which can reveal “hotspots” in the array of point data.
+
+Note: Project your DeathAddresses data to the EPSG:32630 UTM coordinate system, before running the  next steps. Some changes have been made to the QGIS interface and how it interacts with some of the processing libraries included
 
 1.  Go to the **Processing Toolbox Window** and **type** to search **Kernel Density Estimation (SAGA)** and **double click** to open the tool window.
 2.  **Select** the **Deaths_Allocated** layer as the **Points** features.
@@ -610,3 +624,11 @@ Set the **Cellsize** to 10 (this is also in meters)
     6.  **Click OK**
 
 ![](media/image017-drop-shadow.png)
+
+That's all for now!
+
+For more on QGIS Cartography and creating layouts, particularly for journal publication see David's QGIS Cartography workshops:
+
+https://sites.google.com/stanford.edu/gis-cartography/workshops/qgis-cartography
+
+https://sites.google.com/stanford.edu/gis-cartography/workshops/maps-for-academic-journals
