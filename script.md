@@ -6,6 +6,14 @@
 
 ## Setup
 
+Live slides
+https://slides.com/staceymaples/gisintro-1/live
+
+Document:
+
+https://mapninja.github.io/QGIS-101/
+
+
 ### Software
 https://qgis.org/en/site/forusers/download.html
 

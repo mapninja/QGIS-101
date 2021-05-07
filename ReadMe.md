@@ -33,7 +33,9 @@ QGIS Current Version Help - https://qgis.org/en/docs/index.html
 
 This tutorial on GIthub Pages - https://mapninja.github.io/QGIS-101/
 
+Introductory Slides: https://slides.com/staceymaples/gisintro-1/
 
+LIVE Intro Slides: https://slides.com/staceymaples/gisintro-1/live
 
 ## Setup
 
@@ -416,6 +418,8 @@ Your map should have a collection of 13 points like the image,  below:
 ![](./media/labels.png)
 
 ![](images/ReadMe-e68895da.png)
+
+
 ### Projecting data
 Here, we will export our data to projected coordinate system of our project. Often, our data layers will need to be in the  projection  for many of the Processing Tools (in most Desktop GIS  systems, in fact) to  work properly. We'll use the same UTM coordiante system as our Study_Area.shp layer, for this  reason,  but also  because, in  general,it is far easier to measure and interpret the results of geometric operations  (area, length, perimeter, etc...).
 
