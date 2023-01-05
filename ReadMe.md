@@ -53,7 +53,8 @@ To download QGIS for your operating system go to QGIS.org and click on the downl
 
 ### Data
 
-The data package for the workshop can be downloaded from [https://github.com/mapninja/QGIS-101/archive/master.zip](https://github.com/mapninja/QGIS-101/archive/master.zip)
+1. The data package for the workshop can be downloaded from [https://github.com/mapninja/QGIS-101/archive/master.zip](https://github.com/mapninja/QGIS-101/archive/master.zip)
+2. Once the download is complete, browse to the folder where you saved it, and unzip the .zip file to make it's contents completely accessible to QGIS. 
 
 The project data folder contains the following datasets:
 
@@ -73,7 +74,7 @@ In this section we will cover starting a new QGIS project. We will create a new 
 
 ### Create a Map Document
 
-1. To create a new map document, simply open QGIS and save the resulting empty document to the top level of your project folder, naming your new document something meaningful like "SnowMap.qgz" or "Cholera_Map.qgz"
+1. To create a new map document, simply open QGIS and save ![](images/savefile.png)    the resulting empty document to the top level of your project folder, naming your new document something meaningful like "SnowMap.qgz" or "Cholera_Map.qgz"
 
 Notice that when you save your map document a new folder in your data browser panel appears. This folder is called **Project Home** and is a shortcut to the folder containing your map document. It's always a good idea to save your map document to a high-level folder above your data and other project directories.
 
@@ -93,23 +94,23 @@ The QGIS interface is made up of three basic components:
 * **The Layers Window** – This is where your added geographic and non-geographic datasets will show. This is similar to the Table of Contents in ArcMap.
 * **Other Panels** - there are many other panels that it is possible to enable in the QGIS interface. We will be making use of the **Processing Toolbox** and **Layer Styling** panel for this workshop.
 
-**Toolbars:**
-A number of  toolbars are enabled, by default, in a new installation  of QGIS. Below are the most commonly used, though not all of the defaults.
-* **Project** – Has the basic commands of any file: New, Open, Save, Save As. The New Print Composer and Composer Manager are to create and manage layout views.
+**Toolbars:**  
+A number of  toolbars are enabled, by default, in a new installation  of QGIS. Below are the most commonly used, though not all of the defaults.  
+* **Project** – Has the basic commands of any file: New, Open, Save, Save As. The New Print Composer and Composer Manager are to create and manage layout views.  
 ![](images/ReadMe-6810db2c.png)
-* **Map Navigation** – Allows the user to Pan, Zoom to a Selected Feature, Zoom In, Zoom Out, Zoom to previous/next extent, and Refresh.
+* **Map Navigation** – Allows the user to Pan, Zoom to a Selected Feature, Zoom In, Zoom Out, Zoom to previous/next extent, and Refresh.  
 ![](images/ReadMe-585c24b9.png)
-* **Attributes** – These tools allow the user to: Identify attributes, Select / Deselect features, Opens attribute table, measure distance/areas/angles, create spatial bookmarks.
+* **Attributes** – These tools allow the user to: Identify attributes, Select / Deselect features, Opens attribute table, measure distance/areas/angles, create spatial bookmarks.  
 ![](images/ReadMe-f10f6c32.png)
-* **Data Source Manager** – This bar is to add layers (vector, raster, new shapefile layer)
+* **Data Source Manager** – This bar is to add layers (vector, raster, new shapefile layer)  
 ![](images/ReadMe-644f8ba0.png)
 *  **Editing** - (Shown with editing toggled ON) Used for creating, altering and deleting features. Remains disabled, outside of an Edit Session.  
 ![](images/ReadMe-5eaeebc5.png)  
 * **Selection** -  Allows you to Select/Deselect features interactively, by attribute value, or by locations.  
 ![](images/ReadMe-01c70046.png)
-* **Plugins** – QGIS comes with one default plugin enabled: Python Console.
+* **Plugins** – QGIS comes with one default plugin enabled: Python Console.  
 ![](images/ReadMe-30fe2ebe.png)
-* **Help** – The question mark booklet is linked to the QGIS User Guide.
+* **Help** – The question mark booklet is linked to the QGIS User Guide.  
 ![](images/ReadMe-c2e20be1.png)
 
 
@@ -123,7 +124,7 @@ When you first open QGIS, you might find the toolbars and panels that are enable
 
 ![](./media/customize.png)
 
-### Add a plugin  
+## Add a plugin  
 The first thing we would like to do is add a base map layer to our map project. We will use the **Quick Map Services** plug-in to add a base map created by [Stamen design](https://stamen.com/). QGIS uses a plug-in model to extend the functionality of the basic software. Most plug-ins are contributed by members of the QGIS community and many extend functionality by adding interactivity with external services like geocoding, routing, and base map services.
 
 1. On the **Main menu** of **QGIS**, find the **Plugins** menu and open the **Manage and install plugins** dialogue.  
@@ -139,7 +140,11 @@ The first thing we would like to do is add a base map layer to our map project. 
 1. Installing the **QuickMapServices** plug-in should have added a new menu item to the **QGIS Main Menu** called "Web".
 2. Click on the Web menu and from the **QuickMapServices** item select "**Settings**."
 3. Select the "**More Services**" tab and click on the "**Get contributed pack**" button. This will download a large list of web map services that can be used directly into GIS as base maps.  
+
+
 ![](./media/contribpack.png)  
+
+
 4. Once the contributed pack has been downloaded click **Save** to close the dialog.
 5. Now return to the quick map services menu, and select the **Stamen> Stamen Toner Lite** base map.
 6. **Save** your **map document**.
@@ -198,19 +203,24 @@ Often, we want to be able to move around in our data frame examining different p
 1. Previously we used the main menu to enable a panel. This time, try right-clicking in any empty area of the toolbar then scroll down and select the **Spatial Bookmarks panel** from the menu that is presented.
 2. Right-click on your study_area layer and select **Zoom to layer**.
 3. Click on the **Add Bookmark** button and rename the resulting Spatial Bookmark: "**SOHO**"  
+
 ![](./media/spatialbookmark.png)
+
+
 4. Click on the **Zoom Full** button to zoom to the world, then use the **Zoom to bookmark ** button to return to your Area of Interest.
 
-### Working with CRS
+## Working with Coordinate Reference Systems (CRS)
 Here we will examine the default **Coordinate Reference System**, which should currently be sent to **Web Mercator** and we will change it to **Universal Transverse Mercator** to match our study area layer.  
 
-#### Examine the CRS of a data layer
+### Examine the CRS of a data layer
 1. Right-click on the **study area** layer select the Layer Properties from the menu.
 2. Click on the **Source** tab on the left side of the properties panel, and note in the section called **Geometry And Coordinate Reference System** that the CRS of this layer is:  
 
 ```EPSG:32630 WGS 84 / UTM zone 30N```  
 
 ![](./media/layercrs.png)
+
+
 3. Click OK to close the **Layer Properties** Dialog  
 4. On the **Main Menu** Open the **Project>Project Properties**  
 5. Click on the **CRS** tab at the left and note that the project is in a projection called:  
@@ -221,9 +231,11 @@ Here we will examine the default **Coordinate Reference System**, which should c
 
 ![](./media/projectcrs.png)
 
-#### Change the Project CRS  
+### Change the Project CRS  
 1. Locate the CRS of the **Study_Area** layer in the "**Recently used coordinate reference systems**" section, or type the EPSG code "**32630**" into the Filter box at the top of the **Properties** dialog.  
+
 ![](./media/newprojectcrs.png)
+
 2. Click on the ```EPSG:32630 WGS 84 / UTM zone 30N``` and then click OK to change the CRS of the Project to the same as the layer **Study_Area**.
 3. Save your changes by clicking on the Save button ![](./media/savebutton.png) on the Project toolbar.  
 
