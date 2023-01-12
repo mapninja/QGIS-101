@@ -120,25 +120,27 @@ When you first open QGIS, you might find the toolbars and panels that are enable
 
 ![](./media/customize.gif)
 
-1. Toggle the visibility and move toolbars and panels until your QGIS interface resembles the image below.
+1. Toggle the visibility and move toolbars and panels until your QGIS interface resembles the image below.  
 
-![](./media/customize.png)
+
+![](./media/customize.png)  
+
 
 ## Add a plugin  
 The first thing we would like to do is add a base map layer to our map project. We will use the **Quick Map Services** plug-in to add a base map created by [Stamen design](https://stamen.com/). QGIS uses a plug-in model to extend the functionality of the basic software. Most plug-ins are contributed by members of the QGIS community and many extend functionality by adding interactivity with external services like geocoding, routing, and base map services.
 
 1. On the **Main menu** of **QGIS**, find the **Plugins** menu and open the **Manage and install plugins** dialogue.  
-2. In the search box at the top of the dialogue, search for the term "QuickMapServices"    
-3. The search should return a plug-in called "QuickMapServices."
-4. Click on the QuickMapServices plug-in name and then click the install plug-in button
+2. In the search box at the top of the dialogue, search for the term "`QuickMapServices`"    
+3. The search should return a plug-in called "`QuickMapServices`."
+4. Click on the `QuickMapServices` plug-in name and then click the install plug-in button
 5. Once the plug-in has successfully installed, Close the plug-in management dialog.
 
 ![](./media/pluginMenu.png)  
 
 ### Add a basemap service layer
 
-1. Installing the **QuickMapServices** plug-in should have added a new menu item to the **QGIS Main Menu** called "Web".
-2. Click on the Web menu and from the **QuickMapServices** item select "**Settings**."
+1. Installing the **`QuickMapServices`** plug-in should have added a new menu item to the **QGIS Main Menu** called "Web".
+2. Click on the Web menu and from the **`QuickMapServices`** item select "**Settings**."
 3. Select the "**More Services**" tab and click on the "**Get contributed pack**" button. This will download a large list of web map services that can be used directly into GIS as base maps.  
 
 
@@ -202,12 +204,11 @@ Often, we want to be able to move around in our data frame examining different p
 
 1. Previously we used the main menu to enable a panel. This time, try right-clicking in any empty area of the toolbar then scroll down and select the **Spatial Bookmarks panel** from the menu that is presented.
 2. Right-click on your study_area layer and select **Zoom to layer**.
-3. Click on the **Add Bookmark** button and rename the resulting Spatial Bookmark: "**SOHO**"  
+3. Click on the **Add Bookmark** button ![](images/savebookmark.png)   and rename the resulting Spatial Bookmark: "**SOHO**"  
 
-![](./media/spatialbookmark.png)
+![](images/spatialbookmarkpanel.png)  
 
-
-4. Click on the **Zoom Full** button to zoom to the world, then use the **Zoom to bookmark ** button to return to your Area of Interest.
+4. Click on the **Zoom Full** button to zoom to the world, then use the **Zoom to bookmark** button to return to your Area of Interest.
 
 ## Working with Coordinate Reference Systems (CRS)
 Here we will examine the default **Coordinate Reference System**, which should currently be sent to **Web Mercator** and we will change it to **Universal Transverse Mercator** to match our study area layer.  
@@ -220,6 +221,7 @@ Here we will examine the default **Coordinate Reference System**, which should c
 
 ![](./media/layercrs.png)
 
+### Examine the CRS of the Project
 
 3. Click OK to close the **Layer Properties** Dialog  
 4. On the **Main Menu** Open the **Project>Project Properties**  
@@ -230,6 +232,10 @@ Here we will examine the default **Coordinate Reference System**, which should c
 *This is the projection of the basemap and is the default for the project because the basemap was the first layer that we added to the project.*  
 
 ![](./media/projectcrs.png)
+
+The CRS of the Project can also be observed at the bottom of the QGIS Window:
+
+
 
 ### Change the Project CRS  
 1. Locate the CRS of the **Study_Area** layer in the "**Recently used coordinate reference systems**" section, or type the EPSG code "**32630**" into the Filter box at the top of the **Properties** dialog.  
@@ -643,10 +649,32 @@ Set the **Cellsize** to 10 (this is also in meters)
 
 ![](media/image017-drop-shadow.png)
 
-That's all for now!
+
 
 For more on QGIS Cartography and creating layouts, particularly for journal publication see David's QGIS Cartography workshops:
 
 https://sites.google.com/stanford.edu/gis-cartography/workshops/qgis-cartography
 
 https://sites.google.com/stanford.edu/gis-cartography/workshops/maps-for-academic-journals
+
+
+# Under Construction
+
+## Layouts and Exports
+
+### Create a New Layout
+
+### Add a Map Canvas
+
+### Adjust the Extent of the Map Canvas
+
+### Add a ScaleBar
+
+### Add a Legend
+
+### Add a North Arrow
+
+### Add Text
+
+### Export to an Image or PDF
+
